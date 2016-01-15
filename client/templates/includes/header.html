@@ -1,39 +1,16 @@
 <template name="header">
-  <div class="ui secondary vertical pointing menu">
-  <a class="active item">
-    Home
-  </a>
-  <a class="item">
-    Messages
-  </a>
-  <a class="item">
-    Friends
-  </a>
-</div>
-  <nav class="ui secondary vertical pointing menu" role="navigation">
-    <div class="item">
-      Folio
-    </div>
-    <div class="collapse navbar-collapse" id="navigation">
-      <ul class="nav navbar-nav">
-        <li class="{{activeRouteClass 'home' 'newPosts'}}">
-          <a href="{{pathFor 'newPosts'}}">New</a>
-        </li>
-        <li class="{{activeRouteClass  'bestPosts'}}">
-          <a href="{{pathFor 'bestPosts'}}">Best</a>
-        </li>
-        {{#if currentUser}}
-          <li class="{{activeRouteClass 'postSubmit'}}">
-            <a href="{{pathFor 'postSubmit'}}">Submit Post</a>
-          </li>
-          <li class="dropdown">
-            {{> notifications}}
-          </li>
-        {{/if}}
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        {{> loginButtons}}
-      </ul>
-    </div>
+  <nav class="ui vertical inverted labeled icon menu">
+    <a href="{{pathFor route='/'}}" class="item">
+      <i class="desktop icon"></i>
+      HUD
+    </a>
+    <a href="{{pathFor route='/controls'}}" class="item">
+      <i class="big dashboard icon"></i>
+      Controls
+    </a>
+    <a class="item">
+      <i class="big options icon"></i>
+      Settings
+    </a>
   </nav>
 </template>

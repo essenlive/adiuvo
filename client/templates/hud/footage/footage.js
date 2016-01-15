@@ -1,0 +1,3 @@
+Template.footage.onRendered(function () {
+
+});

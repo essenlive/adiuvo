@@ -1,7 +1,10 @@
 <template name="layout">
+  <header id="menu" class="ui thin sidebar ">
     {{> header}}
-    {{> errors}}
-    <div id="main">
-      {{> yield}}
-    </div>
+  </header>
+  <main class="pusher">
+    {{> menuToggle}}
+    {{> loginButtons}}
+    {{> yield}}
+  </main>
 </template>
