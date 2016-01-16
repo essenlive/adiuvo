@@ -1,14 +1,14 @@
 <template name="header">
   <nav class="ui vertical inverted labeled icon menu">
-    <a href="{{pathFor route='/'}}" class="item">
+    <a href="{{pathFor 'home'}}" class="item">
       <i class="desktop icon"></i>
       HUD
     </a>
-    <a href="{{pathFor route='/controls'}}" class="item">
+    <a href="{{pathFor 'controls'}}" class="item">
       <i class="big dashboard icon"></i>
       Controls
     </a>
-    <a class="item">
+    <a href="{{pathFor 'settings'}}" class="item">
       <i class="big options icon"></i>
       Settings
     </a>
