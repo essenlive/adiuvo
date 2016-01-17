@@ -3,8 +3,11 @@
     {{> header}}
   </header>
   <main class="pusher">
-    {{> menuToggle}}
-    {{> loginButtons}}
+    <div id="top-bar">
+      {{> menuToggle}}
+      {{> appName}}
+      {{> loginButtons}}
+    </div>
     {{> yield}}
   </main>
 </template>

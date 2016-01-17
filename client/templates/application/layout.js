@@ -4,3 +4,7 @@ Template.layout.events({
     .sidebar('toggle');
   }
 });
+Template.layout.onRendered(function(){
+    $('.ui.sidebar').sidebar('hide');
+    console.log("testet");
+});

@@ -3,10 +3,10 @@ if (Meteor.users.find().count() === 0) {
 
   var essen = Accounts.createUser({
     profile: {
-      name: 'Administrator'
+      name: 'Quentin Perchais'
     },
-    username: "admin",
+    username: "user",
     email: "perchais.quentin@gmail.com",
-    password: "admin",
+    password: "user",
   });
 }

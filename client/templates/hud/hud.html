@@ -2,6 +2,9 @@
   <section id="hud">
     {{ >footage }}
     <div id="widgets">
+      {{ #if autonomousMode}}
+      {{ >mode }}
+      {{ /if }}
     </div>
   </section>
 </template>
