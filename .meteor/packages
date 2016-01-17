@@ -22,14 +22,10 @@ sacha:spin
 accounts-password
 check
 audit-argument-checks
-orionjs:core
 fortawesome:fontawesome
 aldeed:autoform
 aldeed:simple-schema
-orionjs:summernote
-vsivsi:orion-file-collection
 less
 semantic:ui
-dvz:orion-semantic-ui
-fabienb4:autoform-semantic-ui
 iandouglas:accounts-ui-semantic-ui
+ecwyne:polymer
