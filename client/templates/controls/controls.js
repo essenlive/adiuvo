@@ -18,8 +18,10 @@ Template.controls.events({
 
   "change input":function(){
     var values = $('#controls').form('get values');
+    var newMode = $('#controls').form('get value','autonomous');
+    var oldMode = Meteor.users.findOne(Meteor.userId()).profile.controls.autonomous;
     Meteor.users.update(Meteor.userId(), { $set: { "profile.controls": values } });
+    if (newMode !== oldMode) { console.log("mode changed");modeToggle(); }
     console.log(Meteor.users.findOne(Meteor.userId()).profile.controls);
-    modeToggle();
   }
 });

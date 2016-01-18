@@ -1,0 +1,2 @@
+Template.navigation.onRendered(function(){
+})
