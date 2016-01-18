@@ -10,3 +10,6 @@ if (Meteor.users.find().count() === 0) {
     password: "user",
   });
 }
+Meteor.startup(function(){
+
+});
