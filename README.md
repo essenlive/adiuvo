@@ -3,12 +3,24 @@
 ## About the app
 
 windVision is a prototype to test the implementation of HMI for autonomous cars. The objective is to have a quick interface to test with users.
+
+### WIP
+- Merge the alert message in AtM
+-	Display drivingMode on top of window
+- Debug all
+
+- Add voiceSynth button
+- Add manual gas alert
+- add automated mode available
+- add navigations
+
 ***
+
 
 ## Run the app
 
 Clone repo and launch meteor
-`cd cadlib ; meteor`
+`cd windvision ; meteor`
 
 ## Code norms
 - All English.

@@ -7,9 +7,8 @@ Template.settings.onRendered(function () {
   for (var key in settings) {
     if (settings[key] === 'on') {settings[key] = true;}
   }
-  Meteor.users.update(Meteor.userId(), { $set: { "profile.settings": settings } });
   //preset toggles values
-  $('#settings').form('set values',Meteor.users.findOne(Meteor.userId()).profile.settings);
+  $('#settings').form('set values',settings);
 });
 Template.settings.events({
   //update the mongo profile on each change

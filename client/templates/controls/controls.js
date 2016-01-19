@@ -8,10 +8,8 @@ Template.controls.onRendered(function () {
   for (var key in controls) {
     if (controls[key] === 'on') {controls[key] = true;}
   }
-  Meteor.users.update(Meteor.userId(), { $set: { "profile.controls": controls } });
-
   //preset toggles values
-  $('#controls').form('set values',Meteor.users.findOne(Meteor.userId()).profile.controls);
+  $('#controls').form('set values', controls);
 });
 Template.controls.events({
   //update the mongo profile on each change

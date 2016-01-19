@@ -16,11 +16,14 @@ Meteor.startup(function(){
         var settings = {
           voice : "on",
         };
+        var driving = {
+          mode : "manual"
+        }
         var controls = {
-          autoManDelay: "5000",
+          autoManDelay: "10000",
           autonomous: false,
           wCSpeed: false,
-          wMEMessage: "I cannot interpret the next virage!",
+          wMEMessage: "Be ready to drive again!",
           wMessageEx: false,
           wNavigation: false,
           wTimer: false,
@@ -30,6 +33,7 @@ Meteor.startup(function(){
           wYoutube: false,
         };
         Meteor.users.update(Meteor.userId(), { $set: { "profile.settings": settings } });
+        Meteor.users.update(Meteor.userId(), { $set: { "profile.driving": driving } });
         Meteor.users.update(Meteor.userId(), { $set: { "profile.controls": controls } });
       });
     });

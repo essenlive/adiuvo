@@ -1,18 +1,18 @@
 Template.mode.helpers({
   drivingMode: function(){
     var user = Meteor.users.findOne(Meteor.userId());
-    var helper = user && user.profile.controls;
-    return helper && helper.mode;
+    var wMHelper = user && user.profile.driving;
+    return wMHelper && wMHelper.mode;
   },
   wYoutube: function(){
     var user = Meteor.users.findOne(Meteor.userId());
-    var helper = user && user.profile.controls;
-    return helper && helper.wYoutube === 'on';
+    var wYHelper = user && user.profile.controls;
+    return wYHelper && wYHelper.wYoutube === 'on';
   },
   wMessageEx: function(){
     var user = Meteor.users.findOne(Meteor.userId());
-    var helper = user && user.profile.controls;
-    return helper && helper.wMessageEx === 'on';
+    var wMHelper = user && user.profile.controls;
+    return wMHelper && wMHelper.wMessageEx === 'on';
   },
   wNavigation: function(){
     var user = Meteor.users.findOne(Meteor.userId());
