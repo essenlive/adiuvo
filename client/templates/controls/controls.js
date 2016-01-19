@@ -19,7 +19,7 @@ Template.controls.events({
     var newMode = $('#controls').form('get value','autonomous');
     var oldMode = Meteor.users.findOne(Meteor.userId()).profile.controls.autonomous;
     Meteor.users.update(Meteor.userId(), { $set: { "profile.controls": values } });
-    if (newMode !== oldMode) { console.log("mode changed");modeToggle(); }
+    if (newMode !== oldMode) {modeToggle(); }
     console.log(Meteor.users.findOne(Meteor.userId()).profile.controls);
   }
 });

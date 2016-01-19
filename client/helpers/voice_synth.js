@@ -5,7 +5,8 @@ voiceSynth = function(text, lang){
     if(dVoice && dVoice.voice){
 
       var speech = new SpeechSynthesisUtterance(text);
-      speech.lang = lang;
+      // speech.lang = lang;
+      speech.lang = 'en-US';
       window.speechSynthesis.speak(speech);
       console.log(text);
     }

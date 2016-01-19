@@ -1,10 +1,16 @@
-Template.navigation.helpers({
+Template.speed.helpers({
   speed: function(){
-    var initialSpeed = 50;
-    Meteor.setInterval(function(){
-      initialSpeed +=  Math.floor(Math.random() * 6) - 3;
-      return initialSpeed;
-    }, 1000);
+    var user = Meteor.users.findOne(Meteor.userId());
+    var wSHelper = user && user.profile.driving;
+    return wSHelper && wSHelper.speed;
   },
+})
 
+Template.speed.onRendered(function(){
+  var speed = Meteor.users.findOne(Meteor.userId()).profile.driving.speed;
+  Meteor.setInterval(function(){
+    speed +=  Math.floor(Math.random() * 5) - 2;
+    Meteor.users.update(Meteor.userId(), { $set: { "profile.driving.speed": speed } });
+    return;
+  }, 330);
 })

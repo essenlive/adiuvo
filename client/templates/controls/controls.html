@@ -10,20 +10,29 @@
 
     <h3 class="ui dividing header">Car mode</h3>
 
-    <div id="s-mode" class="inline field">
-      <div class="ui toggle checkbox">
-        <input name="autonomous" type="checkbox" tabindex="0" class="hidden">
-        <label>Autonomous mode</label>
+    <div class="ui segments">
+      <div class="ui horizontal segments">
+
+        <h4 class="ui secondary segment header">Enable autonomous mode</h4>
+        <div class="ui basic right aligned segment">
+          <div id="s-mode"  class="inline field">
+            <div class="ui toggle checkbox">
+              <input name="autonomous" type="checkbox" tabindex="0" class="hidden">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui segment">
+        <div class="ui inline field ">
+          <div class="ui right labeled fluid input">
+            <label class="ui label">Delay to take controls</label>
+            <input name="autoManDelay" type="text">
+            <div class="ui basic label">ms</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="ui inline field ">
-      <div class="ui right labeled fluid input">
-        <label class="ui label">Delay to take controls</label>
-        <input name="autoManDelay" type="text">
-        <div class="ui basic label">ms</div>
-      </div>
-    </div>
     <h3 class="ui dividing header">Autonomous mode</h3>
 
     <div class="ui segments">
@@ -114,7 +123,7 @@
     <div class="ui segments">
       <div class="ui horizontal segments">
 
-        <h4 class="ui secondary segment header">Current speed</h4>
+        <h4 class="ui secondary segment header">Show speed</h4>
         <div class="ui basic right aligned segment">
           <div class="inline field">
             <div class="ui toggle checkbox">
@@ -127,13 +136,25 @@
 
     <div class="ui segments">
       <div class="ui horizontal segments">
-
-        <h4 class="ui secondary segment header">Navigation</h4>
+        <h4 class="ui secondary segment header">Navigations</h4>
         <div class="ui basic right aligned segment">
           <div class="inline field">
             <div class="ui toggle checkbox">
               <input name="wNavigation" type="checkbox" tabindex="0" class="hidden">
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui segment">
+        <div class="ui inline fluid field selection dropdown">
+          <label>Direction</label>
+          <input type="hidden" name="wNDirection">
+          <i class="dropdown icon"></i>
+          <div class="default text">Go Left</div>
+          <div class="menu">
+            <div class="item" data-value="wN-left">Go Left</div>
+            <div class="item" data-value="wN-right">Go Right</div>
+            <div class="item" data-value="wN-front">Straight Ahead</div>
           </div>
         </div>
       </div>

@@ -8,11 +8,11 @@ windVision is a prototype to test the implementation of HMI for autonomous cars.
 - Merge the alert message in AtM
 -	Display drivingMode on top of window
 - Debug all
+- add navigations
 
 - Add voiceSynth button
 - Add manual gas alert
 - add automated mode available
-- add navigations
 
 ***
 
