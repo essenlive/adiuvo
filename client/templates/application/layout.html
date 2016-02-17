@@ -5,8 +5,10 @@
   <main class="pusher">
     <div id="top-bar">
       {{> menuToggle}}
-      <!-- {{> appName}} -->
       {{> loginButtons}}
+    </div>
+    <div id="footage" class="{{ route }}">
+      {{ >footage }}
     </div>
     {{> yield}}
   </main>

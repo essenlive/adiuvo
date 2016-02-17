@@ -1,10 +1,16 @@
 Template.hud.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
-Template.controls.onRendered(function () {
+Template.dashboard.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
 Template.settings.onRendered(function () {
+    $('.ui.sidebar').sidebar('hide');
+});
+Template.features.onRendered(function () {
+    $('.ui.sidebar').sidebar('hide');
+});
+Template.controller.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
 Template.layout.events({

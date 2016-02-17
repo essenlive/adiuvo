@@ -36,21 +36,27 @@ body{
         color: rgba(150, 150, 150, 0.8);
       }
     }
-    #hud{
-      #footage{
-        z-index: 0;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        top: 0; left: 0; right: 0; bottom: 0;
-        video, img{
-          position: relative;
-          bottom: 0;
-          min-width: 100%;
-          min-height: 100%;
-        }
+    #footage{
+      z-index: 0;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0; left: 0; right: 0; bottom: 0;
+      &.settings, &.dashboard{
+        display: none;
       }
+      & > div{
+          margin: 0 auto;
+      }
+      video, img{
+        position: relative;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+    }
+    #hud{
       #widgets{
         z-index: 10;
         width: 50%;
@@ -71,8 +77,10 @@ body{
       }
     }
   }
-  #settings, #controls{
+  #settings, #controller, #dashboard, #features{
     margin-top: 4rem !important;
     margin-bottom: 4rem !important;
+  }
+  #dashboard{
   }
 }

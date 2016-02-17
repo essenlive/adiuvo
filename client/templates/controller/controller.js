@@ -1,0 +1,3 @@
+Template.controller.onRendered(function () {
+
+});

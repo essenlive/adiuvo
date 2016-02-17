@@ -4,40 +4,45 @@ Meteor.startup(function(){
 
     var essen = Accounts.createUser({
       profile: {
-        name: 'Quentin Perchais'
+        name: 'Roger'
       },
       username: "user",
-      email: "perchais.quentin@gmail.com",
+      // email: "perchais.quentin@gmail.com",
       password: "user",
     }, function(){
 
 
       Meteor.loginWithPassword('user', 'user', function(){
         var settings = {
-          voice : "on",
         };
-        var controls = {
-          autoManDelay: "10000",
-          autonomous: false,
-          wCSpeed: false,
-          wMEMessage: "Be ready to drive again!",
-          wMessageEx: false,
-          wTimer: false,
-          wYOpacity: "o-min",
-          wYPosition: "p-left",
-          wYSize: "s-min",
-          wYoutube: false,
-          wNavigation: false,
-          wNDirection: "wN-Left",
+        var features = {
+          wVoiceActive : "on",
+          wModeAutonomous: "on",
+          wModeDelay: "10000",
+          wSpeedActive: "on",
+          wExplanationActive: "Be ready to drive again!",
+          wExplanationMessage: "on",
+          wTimerActive: "on",
+          wYoutubeActive: "on",
+          wYoutubeOpacity: "o-min",
+          wYoutubePosition: "p-left",
+          wYoutubeSize: "s-min",
+          wNavigationActive: "on",
+          wNavigationDirection: "wN-Left",
+          wWindowActive: "on",
         };
-        var driving = {
+        var status = {
           mode : "manual",
           speed : 90,
-          timer : controls.autoManDelay / 1000,
+          timer : features.wModeDelay / 1000,
         }
         Meteor.users.update(Meteor.userId(), { $set: { "profile.settings": settings } });
-        Meteor.users.update(Meteor.userId(), { $set: { "profile.driving": driving } });
-        Meteor.users.update(Meteor.userId(), { $set: { "profile.controls": controls } });
+        Meteor.users.update(Meteor.userId(), { $set: { "profile.features": features } });
+        Meteor.users.update(Meteor.userId(), { $set: { "profile.status": status } });
+
+        // Defining user
+        var user = Meteor.users.findOne(Meteor.userId());
+        profile = user && user.profile;
       });
     });
   }

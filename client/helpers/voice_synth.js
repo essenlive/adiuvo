@@ -1,6 +1,6 @@
 voiceSynth = function(text, lang){
   var user = Meteor.users.findOne(Meteor.userId());
-  var dVoice = user && user.profile.settings;
+  var dVoice = user && user.profile.features;
   if('speechSynthesis' in window){
     if(dVoice && dVoice.voice){
 
