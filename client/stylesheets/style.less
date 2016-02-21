@@ -20,6 +20,27 @@ body{
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      &::before{
+        content: "";
+        display: block;
+        width: 100%;
+        position: fixed;
+        left: 0; top: 0;
+        height: 2px;
+        background: white;
+
+      }
+      &::after{
+        content: "";
+        z-index: 100;
+        display: block;
+        width: 10%;
+        position: fixed;
+        left: 0; top: 0;
+        height: 2px;
+        background: green;
+
+      }
       #menu-toggle{
         line-height: 2rem;
         background: rgba(0, 0, 0, 0.4);
@@ -36,7 +57,7 @@ body{
         color: rgba(150, 150, 150, 0.8);
       }
     }
-    #footage{
+    #front-footage{
       z-index: 0;
       position: fixed;
       width: 100%;
@@ -48,6 +69,7 @@ body{
       }
       & > div{
           margin: 0 auto;
+          width: 100%;
       }
       video, img{
         position: relative;
@@ -77,7 +99,7 @@ body{
       }
     }
   }
-  #settings, #controller, #dashboard, #features{
+  #settings, #controller, #features{
     margin-top: 4rem !important;
     margin-bottom: 4rem !important;
   }
