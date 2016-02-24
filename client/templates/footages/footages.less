@@ -1,0 +1,41 @@
+#progress-bar{
+  width: 100%;
+  position: fixed;
+  left: 0; top: 0;
+  height: 2px;
+  margin: 0;
+  background: black;
+  z-index: 100;
+  overflow: hidden;
+
+  &:hover{
+    height: 3rem;
+    line-height: 3rem;
+    transition: all 0.5s ease;
+  }
+
+ & > i {
+   z-index: 101;
+   display: block;
+   text-align: center;
+   padding: 1px;
+   color: white;
+   position: absolute;
+   left: 0; top: 0;
+   height: 100%;
+   width: 100%;
+
+ }
+
+  #progress-bar-position{
+    z-index: 100;
+    display: block;
+    width: 0%;
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    background: green;
+    transition: width 0.1s linear;
+
+  }
+}

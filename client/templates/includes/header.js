@@ -7,7 +7,7 @@ Template.dashboard.onRendered(function () {
 Template.settings.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
-Template.features.onRendered(function () {
+Template.widgets.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
 Template.controller.onRendered(function () {

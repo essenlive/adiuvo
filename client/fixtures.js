@@ -15,34 +15,60 @@ Meteor.startup(function(){
       Meteor.loginWithPassword('user', 'user', function(){
         var settings = {
         };
-        var features = {
+        var widgets = {
           wVoiceActive : "on",
-          wModeAutonomous: "on",
+          wModeAutonomous: false,
           wModeDelay: "10000",
-          wSpeedActive: "on",
-          wExplanationActive: "Be ready to drive again!",
-          wExplanationMessage: "on",
-          wTimerActive: "on",
-          wYoutubeActive: "on",
+          wModeShow: false,
+          wSpeedActive: false,
+          wExplanationActive: false,
+          wExplanationMessage: "Be ready to drive again!",
+          wTimerActive: false,
+          wYoutubeActive: false,
           wYoutubeOpacity: "o-min",
           wYoutubePosition: "p-left",
           wYoutubeSize: "s-min",
-          wNavigationActive: "on",
+          wNavigationActive: false,
           wNavigationDirection: "wN-Left",
-          wWindowActive: "on",
+          wWindowActive: false,
+        };
+        var controller = {
+          fScenario : "2",
+          currentTime : 0,
+          status : 0,
         };
         var status = {
-          mode : "manual",
-          speed : 90,
-          timer : features.wModeDelay / 1000,
-        }
+          fScenario : "1",
+          fCurrentTime : 0,
+          fStatus : 0,
+
+          wVoiceActive : "on",
+          wMmode : "manual",
+          wModeAutonomous: false,
+          wModeDelay: "10000",
+          wModeShow: false,
+          wSpeedActive: false,
+          wExplanationActive: false,
+          wExplanationMessage: "Be ready to drive again!",
+          wSpeed : 90,
+          wTimer : widgets.wModeDelay / 1000,
+          wTimerActive: false,
+          wYoutubeActive: false,
+          wYoutubeOpacity: "o-min",
+          wYoutubePosition: "p-left",
+          wYoutubeSize: "s-min",
+          wNavigationActive: false,
+          wNavigationDirection: "wN-Left",
+          wWindowActive: false,
+        };
         Meteor.users.update(Meteor.userId(), { $set: { "profile.settings": settings } });
-        Meteor.users.update(Meteor.userId(), { $set: { "profile.features": features } });
+        Meteor.users.update(Meteor.userId(), { $set: { "profile.widgets": widgets } });
         Meteor.users.update(Meteor.userId(), { $set: { "profile.status": status } });
+        Meteor.users.update(Meteor.userId(), { $set: { "profile.controller": controller } });
 
         // Defining user
         var user = Meteor.users.findOne(Meteor.userId());
-        profile = user && user.profile;
+        userProfile = user && user.profile;
       });
     });
   }

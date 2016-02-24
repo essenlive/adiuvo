@@ -1,0 +1,44 @@
+<template name="frontFootage">
+  <div id="progress-bar">
+    {{{ footageStatus }}}
+    <div id="progress-bar-position">
+    </div>
+  </div>
+  <div id="front-footage" class="{{ route }}">
+    <video id="front-footage-vid" class="video-js" controls autoplay loop preload="auto" data-setup='{}'>
+      <source src="/video/{{ footageScenario }}/driving_footage_front_{{ footageScenario }}.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+    <!-- <img src="/video/driving-footage.png"> -->
+  </div>
+</template>
+
+
+
+<template name="rearFootage">
+  <div id="rear-footage" class="e-mirror">
+    <video id="rear-footage-vid" class="video-js" controls autoplay loop preload="auto" data-setup='{}'>
+      <source src="/video/{{ footageScenario }}/driving_footage_rear_{{ footageScenario }}.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+    <!-- <img src="/video/driving-footage.png"> -->
+  </div>
+</template>
+
+<template name="leftFootage">
+  <div id="left-footage" class="e-mirror">
+
+    <video id="left-footage-vid" class="video-js" controls autoplay loop preload="auto" data-setup='{}'>
+      <source src="/video/{{ footageScenario }}/driving_footage_left_{{ footageScenario }}.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+    <!-- <img src="/video/driving-footage.png"> -->
+  </div>
+  </template>
+
+<template name="rightFootage">
+  <div id="right-footage" class="e-mirror">
+
+    <video id="right-footage-vid" class="video-js" controls autoplay loop preload="auto" data-setup='{}'>
+      <source src="/video/{{ footageScenario }}/driving_footage_right_{{ footageScenario }}.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+    <!-- <img src="/video/driving-footage.png"> -->
+  </div>
+</template>

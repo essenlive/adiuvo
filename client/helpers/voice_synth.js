@@ -1,14 +1,11 @@
 voiceSynth = function(text, lang){
-  var user = Meteor.users.findOne(Meteor.userId());
-  var dVoice = user && user.profile.features;
+  var dVoice = userProfile.widgets && userProfile.widgets.voice;
   if('speechSynthesis' in window){
-    if(dVoice && dVoice.voice){
-
+    if( dVoice ){
       var speech = new SpeechSynthesisUtterance(text);
-      // speech.lang = lang;
       speech.lang = 'en-US';
       window.speechSynthesis.speak(speech);
-      console.log(text);
+      console.log( "voice :" + text);
     }
   }
   return;
