@@ -1,30 +1,24 @@
 Template.mode.helpers({
   wMode: function(){
-    return userProfile.status.mode;
+    return Meteor.user().profile.status.wMode;
   },
-  wYoutube: function(){
-    return  userProfile.status.wYoutube;
+  wYoutubeActive: function(){
+    return  Meteor.user().profile.status.wYoutubeActive;
   },
-  wMessageEx: function(){
-    return  userProfile.status.wMessageEx;
+  wNavigationActive: function(){
+    return  Meteor.user().profile.status.wNavigationActive;
   },
-  wNavigation: function(){
-    return  userProfile.status.wNavigation;
+  wSpeedActive: function(){
+    return  Meteor.user().profile.status.wSpeedActive;
   },
-  wCSpeed: function(){
-    return  userProfile.status.wCSpeed;
-  },
-  wRoadWindow: function(){
-    return  userProfile.status.wRoadWindow;
-  },
-  wAAvailable: function(){
-    return  userProfile.status.wAAvailable;
+  wWindowActive: function(){
+    return  Meteor.user().profile.status.wWindowActive;
   },
 })
 
 
 Template.autoMan.helpers({
-  wTimer: function(){
-    return  userProfile.status.wTimer;
+  wTimerActive: function(){
+    return  Meteor.user().profile.status.wTimerActive;
   },
 })

@@ -1,5 +1,5 @@
 voiceSynth = function(text, lang){
-  var dVoice = userProfile.widgets && userProfile.widgets.voice;
+  var dVoice = Meteor.user().profile.widgets && Meteor.user().profile.widgets.voice;
   if('speechSynthesis' in window){
     if( dVoice ){
       var speech = new SpeechSynthesisUtterance(text);

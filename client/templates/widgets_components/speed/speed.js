@@ -1,16 +1,14 @@
 Template.speed.helpers({
   speed: function(){
-    var user = Meteor.users.findOne(Meteor.userId());
-    var wSHelper = user && user.profile.driving;
-    return wSHelper && wSHelper.speed;
+    return Meteor.user().profile.status.wSpeed;
   },
 })
 
 Template.speed.onRendered(function(){
-  var speed = Meteor.users.findOne(Meteor.userId()).profile.driving.speed;
+  var speed = Meteor.user().profile.status.wSpeed;
   Meteor.setInterval(function(){
     speed +=  Math.floor(Math.random() * 5) - 2;
-    Meteor.users.update(Meteor.userId(), { $set: { "profile.driving.speed": speed } });
+    Meteor.users.update(Meteor.userId(), { $set: { "profile.status.wSpeed": speed } });
     return;
   }, 330);
 })

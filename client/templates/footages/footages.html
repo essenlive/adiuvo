@@ -5,7 +5,7 @@
     </div>
   </div>
   <div id="front-footage" class="{{ route }}">
-    <video id="front-footage-vid" class="video-js" controls autoplay loop preload="auto" data-setup='{}'>
+    <video id="front-footage-vid" autoplay loop preload="auto">
       <source src="/video/{{ footageScenario }}/driving_footage_front_{{ footageScenario }}.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
     </video>
     <!-- <img src="/video/driving-footage.png"> -->
@@ -16,7 +16,7 @@
 
 <template name="rearFootage">
   <div id="rear-footage" class="e-mirror">
-    <video id="rear-footage-vid" class="video-js" controls autoplay loop preload="auto" data-setup='{}'>
+    <video id="rear-footage-vid" autoplay loop preload="auto">
       <source src="/video/{{ footageScenario }}/driving_footage_rear_{{ footageScenario }}.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
     </video>
     <!-- <img src="/video/driving-footage.png"> -->
@@ -26,7 +26,7 @@
 <template name="leftFootage">
   <div id="left-footage" class="e-mirror">
 
-    <video id="left-footage-vid" class="video-js" controls autoplay loop preload="auto" data-setup='{}'>
+    <video id="left-footage-vid" autoplay loop preload="auto">
       <source src="/video/{{ footageScenario }}/driving_footage_left_{{ footageScenario }}.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
     </video>
     <!-- <img src="/video/driving-footage.png"> -->
@@ -36,7 +36,7 @@
 <template name="rightFootage">
   <div id="right-footage" class="e-mirror">
 
-    <video id="right-footage-vid" class="video-js" controls autoplay loop preload="auto" data-setup='{}'>
+    <video id="right-footage-vid" autoplay loop preload="auto">
       <source src="/video/{{ footageScenario }}/driving_footage_right_{{ footageScenario }}.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
     </video>
     <!-- <img src="/video/driving-footage.png"> -->

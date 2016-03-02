@@ -33,9 +33,9 @@ Meteor.startup(function(){
           wWindowActive: false,
         };
         var controller = {
-          fScenario : "2",
-          currentTime : 0,
-          status : 0,
+          fScenario : "1",
+          fCurrentTime : 0,
+          fStatus : 0,
         };
         var status = {
           fScenario : "1",
@@ -66,9 +66,6 @@ Meteor.startup(function(){
         Meteor.users.update(Meteor.userId(), { $set: { "profile.status": status } });
         Meteor.users.update(Meteor.userId(), { $set: { "profile.controller": controller } });
 
-        // Defining user
-        var user = Meteor.users.findOne(Meteor.userId());
-        userProfile = user && user.profile;
       });
     });
   }

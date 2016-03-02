@@ -5,10 +5,10 @@
   {{ #if $eq wMode "manual"}}  {{ >manual }}  {{ /if }}
 
   <!-- display the different widgets -->
-  {{ #if wYoutube }}  {{ >youtube }}   {{ /if }}
-  {{ #if wNavigation }}  {{ >navigation }}  {{ /if }}
-  {{ #if wCSpeed }}  {{ >speed }}  {{ /if }}
-  {{ #if wRoadWindow }}  {{ >roadWindow }}  {{ /if }}
+  {{ #if wYoutubeActive }}  {{ >youtube }}   {{ /if }}
+  {{ #if wNavigationActive }}  {{ >navigation }}  {{ /if }}
+  {{ #if wSpeedActive }}  {{ >speed }}  {{ /if }}
+  {{ #if wWindowActive }}  {{ >roadWindow }}  {{ /if }}
   {{ #if wAAvailable }}  {{ >autoAvailable }}  {{ /if }}
 
 </template>

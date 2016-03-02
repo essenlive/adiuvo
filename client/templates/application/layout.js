@@ -7,7 +7,4 @@ Template.layout.events({
 });
 Template.layout.onRendered(function(){
 
-  // Defining user
-  var user = Meteor.users.findOne(Meteor.userId());
-  userProfile = user && user.profile;
 });

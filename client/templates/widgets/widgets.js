@@ -3,9 +3,10 @@ Template.widgets.onRendered(function () {
   $('.ui.checkbox').checkbox();
   $('.ui.dropdown').dropdown();
   //Manually change semantic ui toggle value
-  // updateStatus.widgets();
+  updateStatus.widgets();
   //preset toggles values
-  $('#widgets').form('set values', userProfile.widgets);
+  var values = Meteor.user().profile.widgets;
+  $('#widgets').form('set values', values);
 });
 
 
@@ -16,6 +17,6 @@ Template.widgets.events({
   "change input":function(){
     var values = $('#widgets').form('get values');
     Meteor.users.update(Meteor.userId(), { $set: { "profile.widgets": values } });
-    // updateStatus.status();
+    updateStatus.status();
   }
 });
