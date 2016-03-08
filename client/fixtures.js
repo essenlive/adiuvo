@@ -33,12 +33,12 @@ Meteor.startup(function(){
           wWindowActive: false,
         };
         var controller = {
-          fScenario : "1",
+          fScenario : "2",
           fCurrentTime : 0,
           fStatus : 0,
         };
         var status = {
-          fScenario : "1",
+          fScenario : "2",
           fCurrentTime : 0,
           fStatus : 0,
 
