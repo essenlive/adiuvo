@@ -1,21 +1,12 @@
-# windVision
+# adiuvo
 
 ## About the app
 
-windVision is a prototype to test the implementation of HMI for autonomous cars. The objective is to have a quick interface to test with users.
-
+Adiuvo is a prototype to test the implementation of HMI for autonomous cars. The objective is to have a quick interface to test with users.
+It is made of three part, Omniscient to display the information in the field of view, Windvision to augment that information and Act up for the controls.
 ### WIP
-- Merge the alert message in AtM
--	Display drivingMode on top of window
-- Debug all
-- add navigations
-
-- Add voiceSynth button
-- Add manual gas alert
-- add automated mode available
 
 ***
-
 
 ## Run the app
 
