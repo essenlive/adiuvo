@@ -16,5 +16,21 @@ Template.controller.events({
     var values = $('#controller').form('get values');
     Meteor.users.update(Meteor.userId(), { $set: { "profile.controller": values } });
     updateStatus.status();
-  }
+  },
+  'click #toggle-footage': function () {
+    footageControls.togglePlay();
+  },
+  'click #restart-footage': function () {
+    footageControls.goTo(0);
+  },
+
 });
+
+
+
+Template.controller.helpers({
+  footageStatus: function(){
+    if (Meteor.user().profile.status.fStatus === 0) return '<i class="pause icon"></i>'
+    else { return '<i class="play icon"></i>' }
+  },
+})

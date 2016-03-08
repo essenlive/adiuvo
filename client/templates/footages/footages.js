@@ -1,33 +1,75 @@
 Template.frontFootage.onRendered(function () {
   if( $("#front-footage-vid")[0] ){
-    console.log('ffplayer');
+    console.log('frfplayer');
     frontFootagePlayer = $("#front-footage-vid")[0];
-    var refreshInt = 100;
-    $('#progress-bar-position').css( {'transition-duration' : refreshInt});
-    Meteor.setInterval(function(){
-      currentTime = frontFootagePlayer.currentTime;
-      var totalTime =  frontFootagePlayer.duration;
-      var progressPosition = currentTime / totalTime * 100;
-      $('#progress-bar-position').width( progressPosition + '%');
-      return;
-    }, refreshInt);
+
+    Tracker.autorun(function fControlToggle() {
+      var status = Meteor.user().profile.status.fStatus;
+      if ( status ) { frontFootagePlayer.pause(); }
+      else { frontFootagePlayer.play(); }
+    });
+
+    Tracker.autorun(function fControlGoto() {
+      var goTo = Meteor.user().profile.status.fCurrentTime;
+      frontFootagePlayer.currentTime = goTo;
+    });
   }
-  console.log('ffrerendered');
 });
 
 Template.rearFootage.onRendered(function () {
+  if( $("#rear-footage-vid")[0] ){
+    console.log('refplayer');
+    rearFootagePlayer = $("#rear-footage-vid")[0];
+
+    Tracker.autorun(function fControlToggle() {
+      var status = Meteor.user().profile.status.fStatus;
+      if ( status ) { rearFootagePlayer.pause(); }
+      else { rearFootagePlayer.play(); }
+    });
+
+    Tracker.autorun(function fControlGoto() {
+      var goTo = Meteor.user().profile.status.fCurrentTime;
+      rearFootagePlayer.currentTime = goTo;
+    });
+  }
 });
 Template.leftFootage.onRendered(function () {
+  if( $("#left-footage-vid")[0] ){
+    console.log('lefplayer');
+    leftFootagePlayer = $("#left-footage-vid")[0];
+
+    Tracker.autorun(function fControlToggle() {
+      var status = Meteor.user().profile.status.fStatus;
+      if ( status ) { leftFootagePlayer.pause(); }
+      else { leftFootagePlayer.play(); }
+    });
+
+    Tracker.autorun(function fControlGoto() {
+      var goTo = Meteor.user().profile.status.fCurrentTime;
+      leftFootagePlayer.currentTime = goTo;
+    });
+  }
 });
 Template.rightFootage.onRendered(function () {
+  if( $("#right-footage-vid")[0] ){
+    console.log('rifplayer');
+    rightFootagePlayer = $("#right-footage-vid")[0];
+
+    Tracker.autorun(function fControlToggle() {
+      var status = Meteor.user().profile.status.fStatus;
+      if ( status ) { rightFootagePlayer.pause(); }
+      else { rightFootagePlayer.play(); }
+    });
+
+    Tracker.autorun(function fControlGoto() {
+      var goTo = Meteor.user().profile.status.fCurrentTime;
+      rightFootagePlayer.currentTime = goTo;
+    });
+  }
 });
 
 
 Template.frontFootage.helpers({
-  footageStatus: function(){
-    if (Meteor.user().profile.status.fStatus === 1) return '<i class="pause icon"></i>'
-    else { return '<i class="play icon"></i>' }
-  },
   route: function(){
     return Router.current().route.getName();
   },
