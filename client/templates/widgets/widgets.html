@@ -1,53 +1,65 @@
 <template name="widgets">
   <section id="widgets" class="ui form container segment">
+
     <h2 class="ui header">
       <i class="grid layout icon"></i>
       <div class="content">
         Widgets
-        <div class="sub header">Here is the place to control the HUD</div>
+        <div class="sub header">Here is the place set the widgets.</div>
       </div>
     </h2>
-    <div class="ui two column stackable grid">
+
+    <div class="ui three column stackable grid">
+
       <div class="ui column">
-        <h3 class="ui dividing header">Car mode</h3>
+        <h3 class="ui dividing header">Omniscient</h3>
 
         <div class="ui segments">
           <div class="ui horizontal segments">
-            <h4 class="ui secondary segment header">Show mode</h4>
+            <h4 class="ui segment header">E-mirrors</h4>
             <div class="ui basic right aligned segment">
               <div class="inline field">
                 <div class="ui toggle checkbox">
-                  <input name="wModeShow" type="checkbox" tabindex="0" class="hidden">
+                  <input name="wEmirrorsActive" type="checkbox" tabindex="0" class="hidden">
                 </div>
               </div>
             </div>
           </div>
-            <div class="ui horizontal segments">
-              <h4 class="ui secondary segment header">Enable autonomous mode</h4>
-              <div class="ui basic right aligned segment">
-                <div class="inline field">
-                  <div class="ui toggle checkbox">
-                    <input name="wModeAutonomous" type="checkbox" tabindex="0" class="hidden">
-                  </div>
-                </div>
-              </div>
-            </div>
           <div class="ui segment">
-            <div class="ui inline field ">
-              <div class="ui right labeled fluid input">
-                <label class="ui label">Delay to take controls</label>
-                <input name="wModeDelay" type="text">
-                <div class="ui basic label">ms</div>
+            <div class="ui inline fluid field selection dropdown">
+              <label>Display</label>
+              <input type="hidden" name="wEmirrorsDisplay">
+              <i class="dropdown icon"></i>
+              <div class="default text">All mirrors</div>
+              <div class="menu">
+                <div class="item" data-value="wE-sides">Side mirrors</div>
+                <div class="item" data-value="wE-central">Central mirror</div>
+                <div class="item" data-value="wE-all">All mirrors</div>
               </div>
             </div>
           </div>
-          <div class="ui horizontal segments">
+        </div>
 
-            <h4 class="ui secondary segment header">Voice interface</h4>
+        <div class="ui segments">
+          <div class="ui horizontal segments">
+            <h4 class="ui segment header">HoodView</h4>
             <div class="ui basic right aligned segment">
               <div class="inline field">
                 <div class="ui toggle checkbox">
-                  <input name="wVoiceActive" type="checkbox" tabindex="0" class="hidden">
+                  <input name="wHoodViewActive" type="checkbox" tabindex="0" class="hidden">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui segments">
+          <div class="ui horizontal segments">
+            <h4 class="ui segment header">TopView</h4>
+            <div class="ui basic right aligned segment">
+              <div class="inline field">
+                <div class="ui toggle checkbox">
+                  <input name="wTopViewActive" type="checkbox" tabindex="0" class="hidden">
                 </div>
               </div>
             </div>
@@ -55,119 +67,12 @@
         </div>
 
       </div>
-
       <div class="ui column">
-        <h3 class="ui dividing header">Autonomous mode</h3>
+        <h3 class="ui dividing header">Windvision</h3>
 
         <div class="ui segments">
           <div class="ui horizontal segments">
-
-            <h4 class="ui secondary segment header">Youtube</h4>
-            <div class="ui basic right aligned segment">
-              <div class="inline field">
-                <div class="ui toggle checkbox">
-                  <input name="wYoutubeActive" type="checkbox" tabindex="0" class="hidden">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="ui segment">
-            <div class="ui inline fluid field selection dropdown">
-              <label>Opacity</label>
-              <input type="hidden" name="wYoutubeOpacity">
-              <i class="dropdown icon"></i>
-              <div class="default text">Opacity</div>
-              <div class="menu">
-                <div class="item" data-value="o-min">Minimum</div>
-                <div class="item" data-value="o-mid">Medium</div>
-                <div class="item" data-value="o-max">Maximum</div>
-              </div>
-            </div>
-            <div class="ui inline fluid field selection dropdown">
-              <label>Size</label>
-              <input type="hidden" name="wYoutubeSize">
-              <i class="dropdown icon"></i>
-              <div class="default text">Size</div>
-              <div class="menu">
-                <div class="item" data-value="s-min">Small</div>
-                <div class="item" data-value="s-mid">Medium</div>
-                <div class="item" data-value="s-max">Large</div>
-              </div>
-            </div>
-            <div class="ui inline fluid field selection dropdown">
-              <label>Position</label>
-              <input type="hidden" name="wYoutubePosition">
-              <i class="dropdown icon"></i>
-              <div class="default text">Position</div>
-              <div class="menu">
-                <div class="item" data-value="p-left">Left</div>
-                <div class="item" data-value="p-mid">Middle</div>
-                <div class="item" data-value="p-right">Right</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="ui segments">
-          <div class="ui horizontal segments">
-
-            <h4 class="ui secondary segment header">Road Window</h4>
-            <div class="ui basic right aligned segment">
-              <div class="inline field">
-                <div class="ui toggle checkbox">
-                  <input name="wWindowActive" type="checkbox" tabindex="0" class="hidden">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ui column">
-        <h3 class="ui dividing header">Transition A to M</h3>
-
-        <div class="ui segments">
-          <div class="ui horizontal segments">
-
-            <h4 class="ui secondary segment header">Message Explanation</h4>
-            <div class="ui basic right aligned segment">
-              <div class="inline field">
-                <div class="ui toggle checkbox">
-                  <input name="wExplanationActive" type="checkbox" tabindex="0" class="hidden">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="ui segment">
-            <div class="ui inline field">
-              <label>Short Text message</label>
-              <textarea name="wExplanationMessage" rows="2"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="ui segments">
-          <div class="ui horizontal segments">
-
-            <h4 class="ui secondary segment header">Timer</h4>
-            <div class="ui basic right aligned segment">
-              <div class="inline field">
-                <div class="ui toggle checkbox">
-                  <input name="wTimerActive" type="checkbox" tabindex="0" class="hidden">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ui column">
-        <h3 class="ui dividing header">Manual</h3>
-
-        <div class="ui segments">
-          <div class="ui horizontal segments">
-
-            <h4 class="ui secondary segment header">Show speed</h4>
+            <h4 class="ui segment header">Speed</h4>
             <div class="ui basic right aligned segment">
               <div class="inline field">
                 <div class="ui toggle checkbox">
@@ -180,7 +85,7 @@
 
         <div class="ui segments">
           <div class="ui horizontal segments">
-            <h4 class="ui secondary segment header">Navigations</h4>
+            <h4 class="ui segment header">Navigations</h4>
             <div class="ui basic right aligned segment">
               <div class="inline field">
                 <div class="ui toggle checkbox">
@@ -203,7 +108,31 @@
             </div>
           </div>
         </div>
+
       </div>
+
+      <div class="ui column">
+        <h3 class="ui dividing header">Controls</h3>
+
+        <div class="ui segments">
+          <div class="ui horizontal segments">
+            <h4 class="ui segment header">Voice Controls</h4>
+            <div class="ui basic right aligned segment">
+              <div class="inline field">
+                <div class="ui toggle checkbox">
+                  <input name="wVoiceControlActive" type="checkbox" tabindex="0" class="hidden">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui segments">
+          <h4 class="ui segment header">Shortcuts</h4>
+        </div>
+
+      </div>
+
     </div>
 
   </section>

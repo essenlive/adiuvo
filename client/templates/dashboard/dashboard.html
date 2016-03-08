@@ -1,5 +1,7 @@
 <template name="dashboard">
   <section id="dashboard">
-    {{>eMirrors}}
+    {{ #if wEmirrorsActive }}  {{>eMirrors}}  {{ /if }}
+    {{ #if wTopViewActive }}  {{>topView}}  {{ /if }}
+    {{ #if wHoodViewActive }}  {{>hoodView}}  {{ /if }}
   </section>
 </template>

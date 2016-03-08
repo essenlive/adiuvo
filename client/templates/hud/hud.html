@@ -1,8 +1,10 @@
 <template name="hud">
   <section id="hud">
   {{ >frontFootage }}
-    <div id="widgets">
-      <!-- {{ >mode }} -->
+    <div id="hud-widgets">
+      <!-- display the different widgets -->
+      {{ #if wSpeedActive }}  {{ >speed }}  {{ /if }}
+      {{ #if wNavigationActive }}  {{ >navigation }}  {{ /if }}
     </div>
   </section>
 </template>

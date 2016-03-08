@@ -7,30 +7,23 @@ Meteor.startup(function(){
         name: 'Roger'
       },
       username: "user",
-      // email: "perchais.quentin@gmail.com",
       password: "user",
     }, function(){
 
 
       Meteor.loginWithPassword('user', 'user', function(){
         var settings = {
+          sVoiceActive : "on",
         };
         var widgets = {
-          wVoiceActive : "on",
-          wModeAutonomous: false,
-          wModeDelay: "10000",
-          wModeShow: false,
+          wEmirrorsActive: false,
+          wEmirrorsDisplay: "wE-all",
+          wHoodViewActive: false,
+          wTopViewActive: false,
           wSpeedActive: false,
-          wExplanationActive: false,
-          wExplanationMessage: "Be ready to drive again!",
-          wTimerActive: false,
-          wYoutubeActive: false,
-          wYoutubeOpacity: "o-min",
-          wYoutubePosition: "p-left",
-          wYoutubeSize: "s-min",
           wNavigationActive: false,
           wNavigationDirection: "wN-Left",
-          wWindowActive: false,
+          wVoiceControlActive: false,
         };
         var controller = {
           fScenario : "2",
@@ -42,24 +35,17 @@ Meteor.startup(function(){
           fCurrentTime : 0,
           fStatus : 0,
 
-          wVoiceActive : "on",
-          wMmode : "manual",
-          wModeAutonomous: false,
-          wModeDelay: "10000",
-          wModeShow: false,
+          sVoiceActive : true,
+
+          wEmirrorsActive: false,
+          wEmirrorsDisplay: "wE-all",
+          wHoodViewActive: false,
+          wTopViewActive: false,
           wSpeedActive: false,
-          wExplanationActive: false,
-          wExplanationMessage: "Be ready to drive again!",
-          wSpeed : 90,
-          wTimer : widgets.wModeDelay / 1000,
-          wTimerActive: false,
-          wYoutubeActive: false,
-          wYoutubeOpacity: "o-min",
-          wYoutubePosition: "p-left",
-          wYoutubeSize: "s-min",
+          wSpeed: 90,
           wNavigationActive: false,
           wNavigationDirection: "wN-Left",
-          wWindowActive: false,
+          wVoiceControlActive: false,
         };
         Meteor.users.update(Meteor.userId(), { $set: { "profile.settings": settings } });
         Meteor.users.update(Meteor.userId(), { $set: { "profile.widgets": widgets } });

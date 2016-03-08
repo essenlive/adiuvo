@@ -5,6 +5,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   .e-mirror{
     position: relative;
     height: 100%;
@@ -23,8 +24,19 @@
       transform: rotateY(0deg);
     }
   }
-  #left-footage{
+  &.wE-sides{
+
+    justify-content: space-between;
+    #rear-footage{
+      display: none;
+    }
+    #left-footage, #right-footage{
+      width: 45%;
+    }
   }
-  #right-footage{
+  &.wE-central{
+    #left-footage, #right-footage{
+      display: none;
+    }
   }
 }

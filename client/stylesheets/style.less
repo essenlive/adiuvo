@@ -31,28 +31,8 @@ body{
         line-height: 2rem;
       }
     }
-    #hud{
-      #widgets{
-        z-index: 10;
-        width: 50%;
-        height: 100%;
-        position: fixed;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        #w-mode{
-          position: absolute;
-          top: 1rem;
-          margin: 0 auto;
-          left: 0;
-          right: 0;
-          width: 80%;
-          background: rgba(255,255,255,0.4);
-        }
-      }
-    }
   }
-  #settings, #controller, #widgets{
+  #settings, #controller{
     margin-top: 4rem !important;
     margin-bottom: 4rem !important;
   }
@@ -61,5 +41,6 @@ body{
     height: 100%;
     width: 100%;
     position: fixed;
+    top: 0;
   }
 }
