@@ -1,7 +1,6 @@
 Template.frontFootage.onRendered(function () {
-  if( $("#front-footage-vid")[0] ){
-    console.log('frfplayer');
-    frontFootagePlayer = $("#front-footage-vid")[0];
+  videojs("front-footage-vid").ready(function(){
+    frontFootagePlayer = this;
 
     Tracker.autorun(function fControlToggle() {
       var status = Meteor.user().profile.status.fStatus;
@@ -11,15 +10,15 @@ Template.frontFootage.onRendered(function () {
 
     Tracker.autorun(function fControlGoto() {
       var goTo = Meteor.user().profile.status.fCurrentTime;
-      frontFootagePlayer.currentTime = goTo;
+      frontFootagePlayer.currentTime(goTo);
     });
-  }
+
+  });
 });
 
 Template.rearFootage.onRendered(function () {
-  if( $("#rear-footage-vid")[0] ){
-    console.log('refplayer');
-    rearFootagePlayer = $("#rear-footage-vid")[0];
+  videojs("rear-footage-vid").ready(function(){
+    rearFootagePlayer = this;
 
     Tracker.autorun(function fControlToggle() {
       var status = Meteor.user().profile.status.fStatus;
@@ -29,14 +28,14 @@ Template.rearFootage.onRendered(function () {
 
     Tracker.autorun(function fControlGoto() {
       var goTo = Meteor.user().profile.status.fCurrentTime;
-      rearFootagePlayer.currentTime = goTo;
+      rearFootagePlayer.currentTime(goTo);
     });
-  }
+
+  });
 });
 Template.leftFootage.onRendered(function () {
-  if( $("#left-footage-vid")[0] ){
-    console.log('lefplayer');
-    leftFootagePlayer = $("#left-footage-vid")[0];
+  videojs("left-footage-vid").ready(function(){
+    leftFootagePlayer = this;
 
     Tracker.autorun(function fControlToggle() {
       var status = Meteor.user().profile.status.fStatus;
@@ -46,14 +45,14 @@ Template.leftFootage.onRendered(function () {
 
     Tracker.autorun(function fControlGoto() {
       var goTo = Meteor.user().profile.status.fCurrentTime;
-      leftFootagePlayer.currentTime = goTo;
+      leftFootagePlayer.currentTime(goTo);
     });
-  }
+
+  });
 });
 Template.rightFootage.onRendered(function () {
-  if( $("#right-footage-vid")[0] ){
-    console.log('rifplayer');
-    rightFootagePlayer = $("#right-footage-vid")[0];
+  videojs("right-footage-vid").ready(function(){
+    rightFootagePlayer = this;
 
     Tracker.autorun(function fControlToggle() {
       var status = Meteor.user().profile.status.fStatus;
@@ -63,9 +62,10 @@ Template.rightFootage.onRendered(function () {
 
     Tracker.autorun(function fControlGoto() {
       var goTo = Meteor.user().profile.status.fCurrentTime;
-      rightFootagePlayer.currentTime = goTo;
+      rightFootagePlayer.currentTime(goTo);
     });
-  }
+
+  });
 });
 
 
@@ -75,7 +75,7 @@ Template.frontFootage.helpers({
   },
   footageScenario: function(){
     var scenario = Meteor.user().profile.status.fScenario;
-    var scenarioSource = '<video id="front-footage-vid" autoplay loop preload="auto"> <source src="/video/' + scenario + '/driving_footage_front.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
+    var scenarioSource = '<video id="front-footage-vid" autoplay loop class="video-js" preload="auto"> <source src="/video/' + scenario + '/driving_footage_front.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
     return scenarioSource;
 
   },
@@ -84,7 +84,7 @@ Template.frontFootage.helpers({
 Template.rearFootage.helpers({
   footageScenario: function(){
     var scenario = Meteor.user().profile.status.fScenario;
-    var scenarioSource = '<video id="rear-footage-vid" autoplay loop preload="auto"> <source src="/video/' + scenario + '/driving_footage_rear.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
+    var scenarioSource = '<video id="rear-footage-vid" autoplay loop class="video-js" preload="auto"> <source src="/video/' + scenario + '/driving_footage_rear.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
     return scenarioSource;
   },
 })
@@ -92,7 +92,7 @@ Template.rearFootage.helpers({
 Template.leftFootage.helpers({
   footageScenario: function(){
     var scenario = Meteor.user().profile.status.fScenario;
-    var scenarioSource = '<video id="left-footage-vid" autoplay loop preload="auto"> <source src="/video/' + scenario + '/driving_footage_left.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
+    var scenarioSource = '<video id="left-footage-vid" autoplay loop class="video-js" preload="auto"> <source src="/video/' + scenario + '/driving_footage_left.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
     return scenarioSource;
   },
 })
@@ -100,7 +100,7 @@ Template.leftFootage.helpers({
 Template.rightFootage.helpers({
   footageScenario: function(){
     var scenario = Meteor.user().profile.status.fScenario;
-    var scenarioSource = '<video id="right-footage-vid" autoplay loop preload="auto"> <source src="/video/' + scenario + '/driving_footage_right.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
+    var scenarioSource = '<video id="right-footage-vid" autoplay loop class="video-js" preload="auto"> <source src="/video/' + scenario + '/driving_footage_right.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
     return scenarioSource;
   },
 })
