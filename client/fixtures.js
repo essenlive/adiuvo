@@ -21,8 +21,9 @@ Meteor.startup(function(){
           wHoodViewActive: false,
           wTopViewActive: false,
           wSpeedActive: false,
+          wStreetName: "main street",
           wNavigationActive: false,
-          wNavigationDirection: "wN-Left",
+          wNavigationDirection: "wN-left",
           wVoiceControlActive: false,
         };
         var controller = {
@@ -43,8 +44,9 @@ Meteor.startup(function(){
           wTopViewActive: false,
           wSpeedActive: false,
           wSpeed: 90,
-          wNavigationActive: false,
-          wNavigationDirection: "wN-Left",
+          wStreetName: "main street",
+          wNavigationActive: true,
+          wNavigationDirection: "wN-left",
           wVoiceControlActive: false,
         };
         Meteor.users.update(Meteor.userId(), { $set: { "profile.settings": settings } });

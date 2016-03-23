@@ -33,3 +33,11 @@ insecure
 raix:handlebar-helpers
 msavin:mongol
 jrudio:videojs
+http
+jakozaur:websockify
+joncursi:socket-io-client
+meteorhacks:npm
+
+
+npm-container
+keypress:keypress
