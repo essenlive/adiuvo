@@ -9,7 +9,13 @@ Template.widgets.onRendered(function () {
   $('#widgets').form('set values', values);
 });
 
+Template.widgets.helpers({
+  shortcuts: function(){
+    var shortcuts = myShortcuts;
 
+    return shortcuts;
+  },
+})
 
 Template.widgets.events({
   //update the mongo profile on each change
@@ -18,5 +24,11 @@ Template.widgets.events({
     var values = $('#widgets').form('get values');
     Meteor.users.update(Meteor.userId(), { $set: { "profile.widgets": values } });
     updateStatus.status();
-  }
+  },
+  "click .send-message":function(){
+    var message = Meteor.user().profile.status.wVoiceMessage;
+    voiceSynth( message );
+    console.log( message );
+  },
+
 });

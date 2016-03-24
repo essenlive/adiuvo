@@ -13,15 +13,19 @@ Meteor.startup(function(){
 
       Meteor.loginWithPassword('user', 'user', function(){
         var settings = {
-          sVoiceActive : "on",
+          sVoiceActive : true,
         };
         var widgets = {
-          wEmirrorsActive: false,
+          wEmirrorsActive: true,
           wEmirrorsDisplay: "wE-all",
           wHoodViewActive: false,
           wTopViewActive: false,
           wSpeedActive: false,
           wStreetName: "main street",
+          wDistance: "500 m",
+          wAlertActive: true,
+          wAlertMessage: "Brake!",
+          wVoiceMessage: "Brake!",
           wNavigationActive: false,
           wNavigationDirection: "wN-left",
           wVoiceControlActive: false,
@@ -38,13 +42,17 @@ Meteor.startup(function(){
 
           sVoiceActive : true,
 
-          wEmirrorsActive: false,
+          wEmirrorsActive: true,
           wEmirrorsDisplay: "wE-all",
           wHoodViewActive: false,
           wTopViewActive: false,
           wSpeedActive: false,
           wSpeed: 90,
           wStreetName: "main street",
+          wDistance: "in 500m",
+          wAlertActive: true,
+          wAlertMessage: "Brake!",
+          wVoiceMessage: "Brake!",
           wNavigationActive: true,
           wNavigationDirection: "wN-left",
           wVoiceControlActive: false,

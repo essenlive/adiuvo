@@ -5,4 +5,7 @@ Template.hud.helpers({
   wSpeedActive: function(){
     return  Meteor.user().profile.status.wSpeedActive;
   },
+  wAlertActive: function(){
+    return  Meteor.user().profile.status.wAlertActive;
+  },
 })

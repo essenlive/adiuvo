@@ -40,100 +40,157 @@
           </div>
         </div>
 
-        <div class="ui segments">
-          <div class="ui horizontal segments">
-            <h4 class="ui segment header">HoodView</h4>
-            <div class="ui basic right aligned segment">
-              <div class="inline field">
-                <div class="ui toggle checkbox">
-                  <input name="wHoodViewActive" type="checkbox" tabindex="0" class="hidden">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ui segments">
-          <div class="ui horizontal segments">
-            <h4 class="ui segment header">TopView</h4>
-            <div class="ui basic right aligned segment">
-              <div class="inline field">
-                <div class="ui toggle checkbox">
-                  <input name="wTopViewActive" type="checkbox" tabindex="0" class="hidden">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <!-- <div class="ui segments">
+        <div class="ui horizontal segments">
+        <h4 class="ui segment header">HoodView</h4>
+        <div class="ui basic right aligned segment">
+        <div class="inline field">
+        <div class="ui toggle checkbox">
+        <input name="wHoodViewActive" type="checkbox" tabindex="0" class="hidden">
       </div>
-      <div class="ui column">
-        <h3 class="ui dividing header">Windvision</h3>
-
-        <div class="ui segments">
-          <div class="ui horizontal segments">
-            <h4 class="ui segment header">Speed</h4>
-            <div class="ui basic right aligned segment">
-              <div class="inline field">
-                <div class="ui toggle checkbox">
-                  <input name="wSpeedActive" type="checkbox" tabindex="0" class="hidden">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ui segments">
-          <div class="ui horizontal segments">
-            <h4 class="ui segment header">Navigations</h4>
-            <div class="ui basic right aligned segment">
-              <div class="inline field">
-                <div class="ui toggle checkbox">
-                  <input name="wNavigationActive" type="checkbox" tabindex="0" class="hidden">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="ui segment">
-            <div class="ui inline fluid field selection dropdown">
-              <label>Direction</label>
-              <input type="hidden" name="wNavigationDirection">
-              <i class="dropdown icon"></i>
-              <div class="default text">Go Left</div>
-              <div class="menu">
-                <div class="item" data-value="wN-left">Go Left</div>
-                <div class="item" data-value="wN-right">Go Right</div>
-                <div class="item" data-value="wN-front">Straight Ahead</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="ui column">
-        <h3 class="ui dividing header">Controls</h3>
-
-        <div class="ui segments">
-          <div class="ui horizontal segments">
-            <h4 class="ui segment header">Voice Controls</h4>
-            <div class="ui basic right aligned segment">
-              <div class="inline field">
-                <div class="ui toggle checkbox">
-                  <input name="wVoiceControlActive" type="checkbox" tabindex="0" class="hidden">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ui segments">
-          <h4 class="ui segment header">Shortcuts</h4>
-        </div>
-
-      </div>
-
     </div>
+  </div>
+</div>
+</div> -->
 
-  </section>
+<div class="ui segments">
+  <div class="ui horizontal segments">
+    <h4 class="ui segment header">TopView</h4>
+    <div class="ui basic right aligned segment">
+      <div class="inline field">
+        <div class="ui toggle checkbox">
+          <input name="wTopViewActive" type="checkbox" tabindex="0" class="hidden">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="ui column">
+  <h3 class="ui dividing header">Windvision</h3>
+
+  <div class="ui segments">
+    <div class="ui horizontal segments">
+      <h4 class="ui segment header">Send voice message</h4>
+      <div class="ui basic right aligned segment">
+        <div class="inline field">
+          <div class="ui button send-message">
+            Send
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="inline field">
+        <label>Message</label>
+        <input type="text" id="send-message-content" name="wVoiceMessage" placeholder="Brake">
+      </div>
+    </div>
+  </div>
+
+  <div class="ui segments">
+    <div class="ui horizontal segments">
+      <h4 class="ui segment header">Speed</h4>
+      <div class="ui basic right aligned segment">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input name="wSpeedActive" type="checkbox" tabindex="0" class="hidden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="ui segments">
+    <div class="ui horizontal segments">
+      <h4 class="ui segment header">Navigations</h4>
+      <div class="ui basic right aligned segment">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input name="wNavigationActive" type="checkbox" tabindex="0" class="hidden">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="ui inline fluid field selection dropdown">
+        <label>Direction</label>
+        <input type="hidden" name="wNavigationDirection">
+        <i class="dropdown icon"></i>
+        <div class="default text">Go left</div>
+        <div class="menu">
+          <div class="item" data-value="wN-left">Go Left</div>
+          <div class="item" data-value="wN-right">Go Right</div>
+          <div class="item" data-value="wN-front">Straight Ahead</div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="ui segments">
+    <h4 class="ui segment header">Street name</h4>
+    <div class="ui segment">
+      <div class="inline field">
+        <label>Street</label>
+        <input type="text" name="wStreetName" placeholder="main street">
+      </div>
+      <div class="inline field">
+        <label>Distance</label>
+        <input type="text" name="wDistance" placeholder="500m">
+      </div>
+    </div>
+  </div>
+
+  <div class="ui segments">
+    <div class="ui horizontal segments">
+      <h4 class="ui segment header">Alerts</h4>
+      <div class="ui basic right aligned segment">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input name="wAlertActive" type="checkbox" tabindex="0" class="hidden">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="inline field">
+        <label>Message</label>
+        <input type="text" name="wAlertMessage" placeholder="Brake">
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="ui column">
+  <h3 class="ui dividing header">Controls</h3>
+<!--
+  <div class="ui disabled segments">
+    <div class="ui horizontal segments">
+      <h4 class="ui segment header">Voice Controls</h4>
+      <div class="ui basic right aligned segment">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input name="wVoiceControlActive" type="checkbox" tabindex="0" class="hidden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div class="ui segments">
+  <h4 class="ui segment header">Shortcuts</h4>
+  <p>
+  {{ shortcuts }}
+</p>
+</div> -->
+
+</div>
+
+</div>
+
+</section>
 </template>

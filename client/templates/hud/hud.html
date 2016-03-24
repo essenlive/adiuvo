@@ -4,7 +4,8 @@
     <div id="hud-widgets">
       <!-- display the different widgets -->
       {{ #if wSpeedActive }}  {{ >speed }}  {{ /if }}
-      {{ #if wNavigationActive }}  {{ >navigation }}  {{ /if }}
+      <!-- {{ #if wNavigationActive }}  {{ >navigation }}  {{ /if }} -->
+      {{ #if wAlertActive }}  {{ >contextWarning }}  {{ /if }}
       {{ >streetNames }}
     </div>
   </section>
