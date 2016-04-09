@@ -1,7 +1,8 @@
 <template name="eMirrors">
-  <div id="e-mirrors" class="{{ wEmirrorsDisplay }}">
-    {{>leftFootage}}
-    {{>rearFootage}}
-    {{>rightFootage}}
-  </div>
+    {{ >filters }}
+    <div id="e-mirrors" class="{{ wEmirrorsDisplay }} {{ wEmirrorsActive }}">
+        {{>leftFootage}}
+        {{>rearFootage}}
+        {{>rightFootage}}
+    </div>
 </template>
