@@ -8,4 +8,7 @@ Template.hud.helpers({
   wAlertActive: function(){
     return  Meteor.user().profile.status.wAlertActive;
   },
+  wStreetActive: function(){
+    return  Meteor.user().profile.status.wStreetActive;
+  },
 })

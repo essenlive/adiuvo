@@ -6,7 +6,7 @@
       {{ #if wSpeedActive }}  {{ >speed }}  {{ /if }}
       <!-- {{ #if wNavigationActive }}  {{ >navigation }}  {{ /if }} -->
       {{ #if wAlertActive }}  {{ >contextWarning }}  {{ /if }}
-      {{ >streetNames }}
+      {{ #if wStreetActive }}  {{ >streetNames }}  {{ /if }}
     </div>
   </section>
 </template>
