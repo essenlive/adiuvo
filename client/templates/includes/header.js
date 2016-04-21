@@ -1,16 +1,13 @@
-Template.hud.onRendered(function () {
+Template.frontDisplay.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
 Template.dashboard.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
-Template.settings.onRendered(function () {
+Template.mirrors.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
-Template.widgets.onRendered(function () {
-    $('.ui.sidebar').sidebar('hide');
-});
-Template.controller.onRendered(function () {
+Template.controls.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
 Template.layout.events({

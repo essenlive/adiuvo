@@ -1,24 +1,20 @@
 <template name="header">
-  <nav class="ui vertical inverted labeled icon menu">
-    <a href="{{pathFor 'hud'}}" class="item">
-      <i class="desktop icon"></i>
-      HUD
-    </a>
-    <a href="{{pathFor 'dashboard'}}" class="item">
-      <i class="big dashboard icon"></i>
-      Dashboard
-    </a>
-    <a href="{{pathFor 'settings'}}" class="item">
-      <i class="big settings icon"></i>
-      Settings
-    </a>
-    <a href="{{pathFor 'widgets'}}" class="item">
-      <i class="big grid layout icon"></i>
-      Widgets
-    </a>
-    <a href="{{pathFor 'controller'}}" class="item">
-      <i class="big options icon"></i>
-      Controller
-    </a>
-  </nav>
+    <nav class="ui vertical inverted labeled icon menu">
+        <a href="{{pathFor 'frontDisplay'}}" class="item">
+            <i class="desktop icon"></i>
+            Front Footage
+        </a>
+        <a href="{{pathFor 'mirrors'}}" class="item">
+            <i class="big settings icon"></i>
+            Mirrors
+        </a>
+        <a href="{{pathFor 'dashboard'}}" class="item">
+            <i class="big dashboard icon"></i>
+            Dashboard
+        </a>
+        <a href="{{pathFor 'controls'}}" class="item">
+            <i class="big options icon"></i>
+            Controls
+        </a>
+    </nav>
 </template>

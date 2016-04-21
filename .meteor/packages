@@ -22,8 +22,6 @@ accounts-password
 check
 audit-argument-checks
 fortawesome:fontawesome
-aldeed:autoform
-aldeed:simple-schema
 less
 semantic:ui
 iandouglas:accounts-ui-semantic-ui
@@ -33,10 +31,10 @@ raix:handlebar-helpers
 msavin:mongol
 jrudio:videojs
 http
-meteorhacks:npm
 
 
-npm-container
 keypress:keypress
 standard-minifier-css
 standard-minifier-js
+
+

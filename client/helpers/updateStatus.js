@@ -1,55 +1,29 @@
-updateStatus = {
+oStatus = {
 
-    status : function() {
-
-        var widgets = Meteor.user().profile.widgets;
-        var settings = Meteor.user().profile.settings;
-        var controller = Meteor.user().profile.controller;
-        var status = Meteor.user().profile.status;
-
-        for (var key in widgets) {
-            status[key] = widgets[key];
-            if (status[key] === 'on') {status[key] = true;}
+    set : function(){
+        var len = arguments.length;
+        var ret = {};
+        for (var i=1; i<len; i++) {
+            for (p in arguments[i]) {
+                if (arguments[i].hasOwnProperty(p)) {
+                    ret[p] = arguments[i][p];
+                }
+            }
         }
-        for (var key in settings) {
-            status[key] = settings[key];
-            if (status[key] === 'on') {status[key] = true;}
-        }
-        for (var key in controller) {
-            status[key] = controller[key];
-            if (status[key] === 'on') {status[key] = true;}
-        }
-        Meteor.users.update(Meteor.userId(), { $set: { "profile.status": status } })
-
+        return ret;
     },
-
-    widgets : function() {
-        var widgets = Meteor.user().profile.widgets;
-        var status = Meteor.user().profile.status;
-        for (var key in widgets) {
-            widgets[key] = status[key];
-            // if (widgets[key] === true ) {widgets[key] = 'on';}
+    update : function(){
+        var len = arguments.length;
+        var ret =  arguments[0];
+        console.log(ret);
+        for (var i=1; i<len; i++) {
+            for (p in ret) {
+                if (arguments[i].hasOwnProperty(p)) {
+                    ret[p] = arguments[i][p];
+                    if (ret[p] === 'on') {ret[p] = true;}
+                }
+            }
         }
-        Meteor.users.update(Meteor.userId(), { $set: { "profile.widgets": widgets } })
-    },
-
-    settings : function() {
-        var settings = Meteor.user().profile.settings;
-        var status = Meteor.user().profile.status;
-        for (var key in settings) {
-            settings[key] = status[key];
-            // if (settings[key] === true ) {settings[key] = 'on';}
-        }
-        Meteor.users.update(Meteor.userId(), { $set: { "profile.settings": settings } })
-    },
-
-    controller : function() {
-        var controller = Meteor.user().profile.controller;
-        var status = Meteor.user().profile.status;
-        for (var key in controller) {
-            controller[key] = status[key];
-            // if (controller[key] === true ) {controller[key] = 'on';}
-        }
-        Meteor.users.update(Meteor.userId(), { $set: { "profile.controller": controller } })
+        return ret;
     },
 }

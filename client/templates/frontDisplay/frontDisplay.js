@@ -1,4 +1,4 @@
-Template.hud.helpers({
+Template.frontDisplay.helpers({
   wNavigationActive: function(){
     return  Meteor.user().profile.status.wNavigationActive;
   },
