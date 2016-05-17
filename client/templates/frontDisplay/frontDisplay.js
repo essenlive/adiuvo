@@ -1,14 +1,18 @@
 Template.frontDisplay.helpers({
   wNavigationActive: function(){
-    return  Meteor.user().profile.status.wNavigationActive;
+    var state = State.findOne({name: 'state'});
+    return state && state.status.wNavigationActive;
   },
   wSpeedActive: function(){
-    return  Meteor.user().profile.status.wSpeedActive;
+    var state = State.findOne({name: 'state'});
+    return state && state.status.wSpeedActive;
   },
   wAlertActive: function(){
-    return  Meteor.user().profile.status.wAlertActive;
+    var state = State.findOne({name: 'state'});
+    return state && state.status.wAlertActive;
   },
   wStreetActive: function(){
-    return  Meteor.user().profile.status.wStreetActive;
+    var state = State.findOne({name: 'state'});
+    return state && state.status.wStreetActive;
   },
 })

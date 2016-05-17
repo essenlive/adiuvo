@@ -1,8 +1,10 @@
 Template.streetNames.helpers({
-  streetName: function(){
-    return Meteor.user().profile.status.wStreetName;
-  },
-  distance: function(){
-    return Meteor.user().profile.status.wDistance;
-  },
+	streetName: function(){
+		var state = State.findOne({name: 'state'});
+		return state && state.status.wStreetName;
+	},
+	distance: function(){
+		var state = State.findOne({name: 'state'});
+		return state && state.status.wDistance;
+	},
 })

@@ -8,5 +8,5 @@ voiceSynth = function(text, lang){
       console.log( "voice :" + text);
     }
   }
-  return;
+  return text;
 }

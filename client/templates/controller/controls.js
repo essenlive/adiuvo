@@ -4,17 +4,14 @@ Template.controls.onRendered(function () {
 	$('.ui.dropdown').dropdown();
 
 	// Update profile.controller and profile.components values
-	Meteor.users.update(Meteor.userId(), {
-		$set: { 
-			"profile.components": oStatus.update( Meteor.user().profile.components, Meteor.user().profile.status ),
-			"profile.controller": oStatus.update( Meteor.user().profile.controller, Meteor.user().profile.status )
-		} 
-	});
+
+	Meteor.call('updateComponents',oStatus.update( State.findOne({name: 'state'}).components, State.findOne({name: 'state'}).status ));
+	Meteor.call('updateController',oStatus.update( State.findOne({name: 'state'}).controller, State.findOne({name: 'state'}).status ));
 
 	//Manually change semantic ui toggle value
 	//preset toggles values
-	$('#components').form('set values', Meteor.user().profile.components );
-	$('#controller').form('set values', Meteor.user().profile.controller );
+	$('#components').form('set values', State.findOne({name: 'state'}).components );
+	$('#controller').form('set values', State.findOne({name: 'state'}).controller );
 });
 
 Template.controls.events({
@@ -23,28 +20,25 @@ Template.controls.events({
 	"change input":function(){
 		var controller = $('#controller').form('get values');
 		var components = $('#components').form('get values');
-		var status = oStatus.update( Meteor.user().profile.status, controller, components);
+		var status = oStatus.update( State.findOne({name: 'state'}).status, controller, components);
 
-		Meteor.users.update(Meteor.userId(), {
-			$set: { 
-				"profile.components": components,
-				"profile.controller": controller,
-				"profile.status": status
-			} 
-		});
+		Meteor.call('updateComponents',components);
+		Meteor.call('updateController',controller);
+		Meteor.call('updateStatus',status);
 	},
 	'click #toggle-footage': function () {
-		footageControls.togglePlay();
+		// footageControls.togglePlay();
 	},
 	'click #restart-footage': function () {
-		footageControls.goTo(0);
+		// footageControls.goTo(0);
 	},
 
 });
 
 Template.controls.helpers({
 	footageStatus: function(){
-		if (Meteor.user().profile.status.fStatus === 0) return '<i class="pause icon"></i>'
+		var state = State.findOne({name: 'state'});
+		if (state && state.status.fStatus === 0) return '<i class="pause icon"></i>'
 			else { return '<i class="play icon"></i>' }
-		},
+		}
 })

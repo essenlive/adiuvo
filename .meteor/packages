@@ -18,13 +18,10 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 underscore
 iron:router@1.0.0-rc.1
 sacha:spin
-accounts-password
 check
-audit-argument-checks
 fortawesome:fontawesome
 less
 semantic:ui
-iandouglas:accounts-ui-semantic-ui
 autopublish
 insecure
 raix:handlebar-helpers
