@@ -74,7 +74,9 @@ Template.frontFootage.helpers({
     return Router.current().route.getName();
   },
   footageScenario: function(){
-    var scenario = Meteor.user().profile.status.fScenario;
+
+    var state = State.findOne({name: 'state'});
+    var scenario = state && state.status.fScenario;
     var scenarioSource = '<video id="front-footage-vid" autoplay loop class="video-js" preload="auto"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Front_View_0'+ scenario +'.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
     return scenarioSource;
 
@@ -83,7 +85,8 @@ Template.frontFootage.helpers({
 
 Template.rearFootage.helpers({
   footageScenario: function(){
-    var scenario = Meteor.user().profile.status.fScenario;
+    var state = State.findOne({name: 'state'});
+    var scenario = state && state.status.fScenario;
     var scenarioSource = '<video id="rear-footage-vid" autoplay loop class="video-js" preload="auto"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Rear_View_0'+ scenario +'.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
     return scenarioSource;
   },
@@ -91,7 +94,8 @@ Template.rearFootage.helpers({
 
 Template.leftFootage.helpers({
   footageScenario: function(){
-    var scenario = Meteor.user().profile.status.fScenario;
+    var state = State.findOne({name: 'state'});
+    var scenario = state && state.status.fScenario;
     var scenarioSource = '<video id="left-footage-vid" autoplay loop class="video-js" preload="auto"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Left_View_0'+ scenario +'.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
     return scenarioSource;
   },
@@ -99,7 +103,8 @@ Template.leftFootage.helpers({
 
 Template.rightFootage.helpers({
   footageScenario: function(){
-    var scenario = Meteor.user().profile.status.fScenario;
+    var state = State.findOne({name: 'state'});
+    var scenario = state && state.status.fScenario;
     var scenarioSource = '<video id="right-footage-vid" autoplay loop class="video-js" preload="auto"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Right_View_0'+ scenario +'.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser. </video>'
     return scenarioSource;
   },

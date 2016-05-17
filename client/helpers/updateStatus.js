@@ -15,7 +15,6 @@ oStatus = {
     update : function(){
         var len = arguments.length;
         var ret =  arguments[0];
-        console.log(ret);
         for (var i=1; i<len; i++) {
             for (p in ret) {
                 if (arguments[i].hasOwnProperty(p)) {

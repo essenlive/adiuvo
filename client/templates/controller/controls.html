@@ -1,131 +1,82 @@
 <template name="controls">
-  <section id="controls" class="ui form container segment">
+	<section id="controls" class="ui form container segment">
 
-    <h2 class="ui header">
-      <i class="grid layout icon"></i>
-      <div class="content">
-        Controls
-        <div class="sub header">Here is the place to control the interface.</div>
-      </div>
-    </h2>
+		<h2 class="ui header">
+			<i class="grid layout icon"></i>
+			<div class="content">
+				Controls
+				<div class="sub header">Here is the place to control the interface.</div>
+			</div>
+		</h2>
 
-    <div class="ui two column stackable grid">
-      <div id="controller" class="ui column">
-        <h3 class="ui dividing header">Footage</h3>
+		<div class="ui two column stackable grid">
+			<div id="controller" class="ui column">
+				<h3 class="ui dividing header">Footage</h3>
 
-        <div class="ui segments">
-          <div class="ui horizontal segments">
+				<div class="ui segments">
+					<div class="ui horizontal segments">
 
-            <div class="ui segment">
-              <div class="ui inline fluid field selection dropdown">
-                <label>Scenario</label>
-                <input type="hidden" name="fScenario">
-                <i class="dropdown icon"></i>
-                <div class="default text">Scenario</div>
-                <div class="menu">
-                  <div class="item" data-value="1">Overtaking in the city</div>
-                  <div class="item" data-value="3">Maneuvering in the city</div>
-                </div>
-              </div>
-            </div>
+						<div class="ui segment">
+							<div class="ui inline fluid field selection dropdown">
+								<label>Scenario</label>
+								<input type="hidden" name="fScenario">
+								<i class="dropdown icon"></i>
+								<div class="default text">Scenario</div>
+								<div class="menu">
+									<div class="item" data-value="1">Overtaking in the city</div>
+									<div class="item" data-value="3">Maneuvering in the city</div>
+								</div>
+							</div>
+						</div>
 
-            <div class="ui segment">
-              <button id="restart-footage" class="ui compact icon button">
-                <i class="retweet icon"></i>
-              </button>
+						<div class="ui segment">
+							<button id="restart-footage" class="ui compact icon button">
+								<i class="retweet icon"></i>
+							</button>
 
-              <button id="toggle-footage" class="ui compact icon button">
-                {{{ footageStatus }}}
-              </button>
-            </div>
-          </div>
+							<button id="toggle-footage" class="ui compact icon button">
+								{{{ footageStatus }}}
+							</button>
+						</div>
+					</div>
 
 
-        </div>
+				</div>
 
-      </div>
+			</div>
 
-      <div id="components" class="ui column">
-        <h3 class="ui dividing header">Alertness</h3>
+			<div id="components" class="ui column">
+				<h3 class="ui dividing header">Alertness</h3>
 
-              <!-- <div class="ui segments">
-                  <div class="ui horizontal segments">
-                      <h4 class="ui segment header">Send voice message</h4>
-                      <div class="ui basic right aligned segment">
-                          <div class="inline field">
-                              <div class="ui button send-message">
-                                  Send
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="ui segment">
-                      <div class="inline field">
-                          <label>Message</label>
-                          <input type="text" id="send-message-content" name="cVoiceMessage" placeholder="Brake">
-                      </div>
-                  </div>
-                </div> -->
-<!--
-              <div class="ui segments">
-                  <div class="ui horizontal segments">
-                      <h4 class="ui segment header">Speed</h4>
-                      <div class="ui basic right aligned segment">
-                          <div class="inline field">
-                              <div class="ui toggle checkbox">
-                                  <input name="cSpeedActive" type="checkbox" tabindex="0" class="hidden">
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                </div> -->
+				
 
-                <div class="ui segments">
-                  <div class="ui horizontal segments">
-                    <h4 class="ui segment header">Street name</h4>
-                    <div class="ui basic right aligned segment">
-                      <div class="inline field">
-                        <div class="ui toggle checkbox">
-                          <input name="cStreetActive" type="checkbox" tabindex="0" class="hidden">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ui segment">
-                    <div class="inline field">
-                      <label>Street</label>
-                      <input type="text" name="cStreetName" placeholder="main street">
-                    </div>
-                    <div class="inline field">
-                      <label>Distance</label>
-                      <input type="text" name="cDistance" placeholder="500m">
-                    </div>
-                  </div>
-                </div>
+				<div class="ui segments">
+					<div class="ui horizontal segments">
+						<h4 class="ui segment header">Street name</h4>
+						<div class="ui basic right aligned segment">
+							<div class="inline field">
+								<div class="ui toggle checkbox">
+									<input name="cStreetActive" type="checkbox" tabindex="0" class="hidden">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ui segment">
+						<div class="inline field">
+							<label>Street</label>
+							<input type="text" name="cStreetName" placeholder="main street">
+						</div>
+						<div class="inline field">
+							<label>Distance</label>
+							<input type="text" name="cDistance" placeholder="500m">
+						</div>
+					</div>
+				</div>
 
-                <div class="ui segments">
-                  <div class="ui horizontal segments">
-                    <h4 class="ui segment header">Alerts</h4>
-                    <div class="ui basic right aligned segment">
-                      <div class="inline field">
-                        <div class="ui toggle checkbox">
-                          <input name="cAlertActive" type="checkbox" tabindex="0" class="hidden">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ui segment">
-                    <div class="inline field">
-                      <label>Message</label>
-                      <input type="text" name="cAlertMessage" placeholder="Brake">
-                    </div>
-                  </div>
-                </div>
+			</div>
 
-              </div>
+		</div>
 
-            </div>
+	</section>
 
-          </section>
-
-        </template>
+</template>
