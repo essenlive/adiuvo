@@ -20,7 +20,6 @@ iron:router@1.0.0-rc.1
 sacha:spin
 accounts-password
 check
-audit-argument-checks
 fortawesome:fontawesome
 less
 semantic:ui
@@ -38,3 +37,4 @@ standard-minifier-css
 standard-minifier-js
 
 
+fourquet:serialport

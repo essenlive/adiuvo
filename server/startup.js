@@ -3,8 +3,7 @@ Meteor.startup(function(){
         //Change root url for video if in dev or in prod env
         srcRoot = "";
         if (process.env.NODE_ENV == "development"){srcRoot = ""; }
-        else { srcRoot = "https://s3.eu-central-1.amazonaws.com/adiuvobucket"; }
-        console.log(srcRoot);
+        else {  srcRoot = "https://s3.eu-central-1.amazonaws.com/adiuvobucket"; }
 
         // Create user
         if (Meteor.users.find().count() === 0) {

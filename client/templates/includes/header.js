@@ -4,7 +4,13 @@ Template.frontDisplay.onRendered(function () {
 Template.dashboard.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
-Template.mirrors.onRendered(function () {
+Template.left.onRendered(function () {
+    $('.ui.sidebar').sidebar('hide');
+});
+Template.right.onRendered(function () {
+    $('.ui.sidebar').sidebar('hide');
+});
+Template.rear.onRendered(function () {
     $('.ui.sidebar').sidebar('hide');
 });
 Template.controls.onRendered(function () {
@@ -12,7 +18,6 @@ Template.controls.onRendered(function () {
 });
 Template.layout.events({
   "click #menu-toggle": function (event, temp) {
-    $('.ui.sidebar')
-    .sidebar('toggle');
+    $('.ui.sidebar').sidebar('toggle');
   }
 });

@@ -3,8 +3,3 @@ Template.layout.helpers({
     return Router.current().route.getName();
   },
 })
-Template.layout.events({
-});
-Template.layout.onRendered(function(){
-
-});
