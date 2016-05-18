@@ -18,7 +18,8 @@ Template.controls.events({
 	//update the mongo profile on each change
 
 	"change input":function(){
-		var controller = $('#controller').form('get values');
+		var controller =  oStatus.update( State.findOne({name: 'state'}).controller, $('#controller').form('get values') );
+		console.log(controller);
 		var components = $('#components').form('get values');
 		var status = oStatus.update( State.findOne({name: 'state'}).status, controller, components);
 

@@ -1,17 +1,23 @@
-// // controls the footage
-// footageControls = {
+// controls the footage
+footageControls = {
 
-//   togglePlay :  function(){
-//     var status = (Meteor.user().profile.status.fStatus + 1 ) % 2;
-//     Meteor.users.update(Meteor.userId(), { $set: { "profile.controller.fStatus": status } });
-//     updateStatus.status();
-//     console.log("status = " + status);
-//   },
+  togglePlay :  function(){
 
-//   goTo : function(timeIndex){
-//     Meteor.users.update(Meteor.userId(), { $set: { "profile.controller.fCurrentTime": timeIndex } });
-//     updateStatus.status();
-//     console.log("goTo = " + timeIndex);
-//     // frontFootagePlayer.currentTime = timeIndex;
-//   },
-// }
+  var state = State.findOne({name: 'state'}).status;
+  state.fStatus = (state.fStatus + 1 ) % 2;
+  Meteor.call('updateController',state);
+  var status = oStatus.update( State.findOne({name: 'state'}).status, state);
+  Meteor.call('updateStatus',status);
+
+  },
+
+  goTo : function(timeIndex){
+
+  var state = State.findOne({name: 'state'}).status;
+  state.fCurrentTime = timeIndex;
+  Meteor.call('updateController',state);
+  var status = oStatus.update( State.findOne({name: 'state'}).status, state);
+  Meteor.call('updateStatus',status);
+
+  },
+}
