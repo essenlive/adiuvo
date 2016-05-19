@@ -9,3 +9,11 @@ Streamy.on('coords', function (d) {
 
 Session.setDefault('x', 0);
 Session.setDefault('y', 0);
+
+
+Meteor._debug = (function (super_meteor_debug) {
+	return function (error, info) {
+		if (!(info && _.has(info, 'msg')))
+			super_meteor_debug(error, info);
+	}
+})(Meteor._debug);

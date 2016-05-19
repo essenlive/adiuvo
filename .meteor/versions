@@ -43,8 +43,6 @@ iron:middleware-stack@1.1.0
 iron:router@1.0.12
 iron:url@1.0.11
 jquery@1.11.8
-jrudio:videojs@5.4.4
-keypress:keypress@2.1.0
 lai:collection-extensions@0.2.1_1
 launch-screen@1.0.11
 less@2.6.0
