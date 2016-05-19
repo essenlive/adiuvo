@@ -26,11 +26,9 @@ autopublish
 insecure
 raix:handlebar-helpers
 msavin:mongol
-jrudio:videojs
 http
 
 
-keypress:keypress
 standard-minifier-css
 standard-minifier-js
 
