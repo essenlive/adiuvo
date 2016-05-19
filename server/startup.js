@@ -25,7 +25,6 @@ Meteor.startup(function(){
 			fStatus : 0,
 		}
 	});
-
 });
 
 
@@ -33,24 +32,30 @@ Meteor.startup(function(){
 Meteor.methods({
 
 	updateComponents: function (components) {
-		State.update({name: "state"}, { 
-			$set: { 
+		State.update({name: "state"}, {
+			$set: {
 				"components": components,
 			}
 		});
 	},
 	updateController: function (controller) {
-		State.update({name: "state"}, { 
-			$set: { 
+		State.update({name: "state"}, {
+			$set: {
 				"controller": controller,
 			}
 		});
 	},
 	updateStatus: function (status) {
-		State.update({name: "state"}, { 
-			$set: { 
+		State.update({name: "state"}, {
+			$set: {
 				"status": status,
 			}
 		});
 	},
+  signInsert: function(sign) {
+    var signId = Signs.insert(sign);
+      return {
+        _id: signId
+      };
+  },
 });

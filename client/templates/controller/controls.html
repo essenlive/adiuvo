@@ -47,30 +47,11 @@
 
 			<div id="components" class="ui column">
 				<h3 class="ui dividing header">Alertness</h3>
-
-				
-
+          {{#each signs}}
+            {{> eventEdit}}
+          {{/each}}
+          {{> eventSubmit}}
 				<div class="ui segments">
-					<div class="ui horizontal segments">
-						<h4 class="ui segment header">Street name</h4>
-						<div class="ui basic right aligned segment">
-							<div class="inline field">
-								<div class="ui toggle checkbox">
-									<input name="cStreetActive" type="checkbox" tabindex="0" class="hidden">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="ui segment">
-						<div class="inline field">
-							<label>Street</label>
-							<input type="text" name="cStreetName" placeholder="main street">
-						</div>
-						<div class="inline field">
-							<label>Distance</label>
-							<input type="text" name="cDistance" placeholder="500m">
-						</div>
-					</div>
 				</div>
 
 			</div>

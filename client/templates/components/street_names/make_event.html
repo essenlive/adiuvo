@@ -1,4 +1,4 @@
-<template name="eventEdit">
+<template name="eventSubmit">
   <div class="ui horizontal segments">
       <h4 class="ui segment header">Street name</h4>
     <div class="ui basic right aligned segment">
@@ -13,18 +13,16 @@
   <div class="ui segment">
     <div class="inline field">
       <label>Street Name</label>
-      <input type="text" name="name" value="{{name}}" placeholder="main street">
+      <input type="text" name="name" placeholder="main street">
     </div>
     <div class="inline field">
       <label>Map Image File</label>
-      <input type="text" name="filename" value="{{filename}}" placeholder="main.jpg">
+      <input type="text" name="filename" placeholder="main.jpg">
     </div>
     <div class="inline field">
       <label>Arrival Time(miliseconds)</label>
-      <input type="text" name="arriveTime" value="{{arriveTime}}" placeholder="12500">
+      <input type="text" name="arriveTime" placeholder="12500">
     </div>
     <input type="submit" value="Submit" class="btn btn-primary submit"/>
-    <hr/>
-    <a class="btn btn-danger delete" href="#">Delete</a>
   </div>
 </template>
