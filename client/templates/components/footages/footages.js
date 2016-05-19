@@ -115,7 +115,7 @@ Template.rearFootage.helpers({
 	footageScenario: function(){
 		var state = State.findOne({name: 'state'});
 		var scenario = state && state.status.fScenario;
-		if (!scenario) var scenarioSource = '<video id="front-footage-vid" autoplay loop preload="auto" poster="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/driving_footage.png"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Front_View_01.webm" type="video/webm" /><source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Front_View_01.mp4" type="video/mp4" />Your browser does not support the video tag.</video>';
+		if (!scenario) var scenarioSource = '<video id="rear-footage-vid" autoplay loop preload="auto" poster="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/driving_footage.png"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Rear_View_01.webm" type="video/webm" /><source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Rear_View_01.mp4" type="video/mp4" />Your browser does not support the video tag.</video>';
 		else var scenarioSource = '<video id="rear-footage-vid" autoplay loop preload="auto" poster="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/driving_footage.png"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Rear_View_0'+ scenario +'.webm" type="video/webm" /><source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Rear_View_0'+ scenario +'.mp4" type="video/mp4" />Your browser does not support the video tag.</video>'
 			return scenarioSource;
 	},
@@ -125,7 +125,7 @@ Template.leftFootage.helpers({
 	footageScenario: function(){
 		var state = State.findOne({name: 'state'});
 		var scenario = state && state.status.fScenario;
-		if (!scenario) var scenarioSource = '<video id="front-footage-vid" autoplay loop preload="auto" poster="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/driving_footage.png"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Front_View_01.webm" type="video/webm" /><source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Front_View_01.mp4" type="video/mp4" />Your browser does not support the video tag.</video>';
+		if (!scenario) var scenarioSource = '<video id="left-footage-vid" autoplay loop preload="auto" poster="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/driving_footage.png"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Left_View_01.webm" type="video/webm" /><source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Left_View_01.mp4" type="video/mp4" />Your browser does not support the video tag.</video>';
 		else var scenarioSource = '<video id="left-footage-vid" autoplay loop preload="auto" poster="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/driving_footage.png"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Left_View_0'+ scenario +'.webm" type="video/webm" /><source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Left_View_0'+ scenario +'.mp4" type="video/mp4" />Your browser does not support the video tag.</video>'
 			return scenarioSource;
 	},
@@ -135,7 +135,7 @@ Template.rightFootage.helpers({
 	footageScenario: function(){
 		var state = State.findOne({name: 'state'});
 		var scenario = state && state.status.fScenario;
-		if (!scenario) var scenarioSource = '<video id="front-footage-vid" autoplay loop preload="auto" poster="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/driving_footage.png"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Front_View_01.webm" type="video/webm" /><source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Front_View_01.mp4" type="video/mp4" />Your browser does not support the video tag.</video>';
+		if (!scenario) var scenarioSource = '<video id="right-footage-vid" autoplay loop preload="auto" poster="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/driving_footage.png"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Right_View_01.webm" type="video/webm" /><source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Right_View_01.mp4" type="video/mp4" />Your browser does not support the video tag.</video>';
 		else var scenarioSource = '<video id="right-footage-vid" autoplay loop preload="auto" poster="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/driving_footage.png"> <source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Right_View_0'+ scenario +'.webm" type="video/webm" /><source src="https://s3.eu-central-1.amazonaws.com/adiuvobucket/video/Valeo_Footage_Right_View_0'+ scenario +'.mp4" type="video/mp4" />Your browser does not support the video tag.</video>'
 			return scenarioSource;
 	},

@@ -5,19 +5,15 @@ footageControls = {
 
 		var state = State.findOne({name: 'state'}).status;
 		state.fStatus = (state.fStatus + 1 ) % 2;
-		Meteor.call('updateController',state);
-		var status = oStatus.update( State.findOne({name: 'state'}).status, state);
-		Meteor.call('updateStatus',status);
+		Meteor.call('updateState', {"status.fStatus": state.fStatus } );
 
 	},
 
-  // goTo : function(timeIndex){
+// goTo : function(timeIndex){
 
-  // var state = State.findOne({name: 'state'}).status;
-  // state.fCurrentTime = timeIndex;
-  // Meteor.call('updateController',state);
-  // var status = oStatus.update( State.findOne({name: 'state'}).status, state);
-  // Meteor.call('updateStatus',status);
+  	// var state = State.findOne({name: 'state'}).status;
+  	// state.fCurrentTime = timeIndex;
+	// Meteor.call('updateState', "status", state);
 
   // },
 }
