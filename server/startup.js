@@ -12,9 +12,6 @@ Meteor.startup(function(){
             fStatus : 0,
         },
         status : {
-            cStreetActive: false,
-            cStreetName: "main street",
-            cDistance: "500 m",
             fScenario : "1",
             fCurrentTime : 0,
             fStatus : 0,
@@ -36,7 +33,6 @@ Meteor.methods({
         console.log('finished updating');
     },
     updateStatus: function (status) {
-        console.log('updateStatus');
         console.log(status);
         State.update({name: "state"}, {
             $set: {

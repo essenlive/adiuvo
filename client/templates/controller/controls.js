@@ -16,13 +16,13 @@ Template.controls.events({
 
 	"change input":function(){
 		var fStatus =  $('#controller').form('get values');
-		var status = oStatus.update( State.findOne({name: 'state'}).status, controller);
-        console.log('calling update controller');
+		var status = oStatus.update( State.findOne({name: 'state'}).status, fStatus);
+        var controller = oStatus.update(State.findOne({name: 'state'}).controller, fStatus);
 		Meteor.call('updateController',controller);
-        console.log('calling update status');
-        status.fScenario = fStatus.fScenario;
 		Meteor.call('updateStatus', status);
         var state = State.findOne({name: 'state'}).status;
+        var sController = State.findOne({name: 'state'}).controller;
+        console.log(sController);
         console.log(state);
 	},
 	'click #toggle-footage': function () {
@@ -42,6 +42,6 @@ Template.controls.helpers({
 		},
     events: function() {
 		var state = State.findOne({name: 'state'});
-        return Events.find({scenarioId: state.status.fScenario});
+        return Events.find({scenarioId: state.controller.fScenario});
     },
 })
