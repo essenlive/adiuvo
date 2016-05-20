@@ -1,5 +1,4 @@
 Meteor.startup(function(){
-
     State.remove({});
     State.insert({
         name : 'state',
@@ -24,7 +23,6 @@ Meteor.startup(function(){
 Meteor.methods({
 
     updateController: function (controller) {
-        console.log(controller);
         State.update({name: "state"}, {
             $set: {
                 "controller": controller
@@ -33,7 +31,6 @@ Meteor.methods({
         console.log('finished updating');
     },
     updateStatus: function (status) {
-        console.log(status);
         State.update({name: "state"}, {
             $set: {
                 "status": status,
@@ -41,9 +38,6 @@ Meteor.methods({
         });
     },
     eventInsert: function(event) {
-        var eventId = Events.insert(event);
-        return {
-            _id: eventId
-        };
+        Events.insert(event);
     },
 });
