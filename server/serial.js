@@ -1,3 +1,4 @@
+/*
 Meteor.startup(function() {
 	try{
 		serialPort = new SerialPort.SerialPort('/COM3', {
@@ -27,3 +28,4 @@ Meteor.methods({
 		return message;
 	},
 }); 
+*/

@@ -3,7 +3,7 @@ Template.controls.onRendered(function () {
 	$('.ui.checkbox').checkbox();
 	$('.ui.dropdown').dropdown();
 
-	// Update profile.controller and profile.components values
+	// Update profile.controller values
 	Meteor.call('updateController',oStatus.update( State.findOne({name: 'state'}).controller, State.findOne({name: 'state'}).status ));
 
 	//Manually change semantic ui toggle value
@@ -16,10 +16,14 @@ Template.controls.events({
 
 	"change input":function(){
 		var fStatus =  $('#controller').form('get values');
-		var status = oStatus.update( State.findOne({name: 'state'}).status, controller, components);
-
+		var status = oStatus.update( State.findOne({name: 'state'}).status, controller);
+        console.log('calling update controller');
 		Meteor.call('updateController',controller);
-		Meteor.call('updateStatus',status);
+        console.log('calling update status');
+        status.fScenario = fStatus.fScenario;
+		Meteor.call('updateStatus', status);
+        var state = State.findOne({name: 'state'}).status;
+        console.log(state);
 	},
 	'click #toggle-footage': function () {
 		footageControls.togglePlay();
@@ -35,5 +39,9 @@ Template.controls.helpers({
 		var state = State.findOne({name: 'state'});
 		if (state && state.status.fStatus === 0) return '<i class="pause icon"></i>'
 			else { return '<i class="play icon"></i>' }
-		}
+		},
+    events: function() {
+		var state = State.findOne({name: 'state'});
+        return Events.find({scenarioId: state.status.fScenario});
+    },
 })
