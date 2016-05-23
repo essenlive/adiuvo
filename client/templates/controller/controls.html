@@ -13,30 +13,39 @@
 			<div id="controller" class="ui column">
 				<h3 class="ui dividing header">Footage</h3>
 
-				<div class="ui segments">
-					<div class="ui horizontal segments">
+				<div class="ui attached segments">
 
-						<div class="ui segment">
-							<div class="ui inline fluid field selection dropdown">
-								<label>Scenario</label>
-								<input type="hidden" name="fScenario">
-								<i class="dropdown icon"></i>
-								<div class="default text">Scenario</div>
-								<div class="menu">
-									<div class="item" data-value="1">Overtaking in the city</div>
-									<div class="item" data-value="3">Maneuvering in the city</div>
-									<div class="item" data-value="4">US</div>
-								</div>
+					<div class="ui segment">
+						<div class="ui inline fluid field selection dropdown">
+							<label>Scenario</label>
+							<input type="hidden" name="fScenario">
+							<i class="dropdown icon"></i>
+							<div class="default text">Scenarios</div>
+							<div class="menu">
+								<div class="item" data-value="1">Overtaking in the city</div>
+								<div class="item" data-value="3">Maneuvering in the city</div>
+								<div class="item" data-value="4">US</div>
 							</div>
 						</div>
+					</div>
 
-						<div class="ui segment">
+					<div class="ui segment">
+
+						<div class="ui fluid right labeled input">
+							<div class="ui label">go to</div>
+							<input name="goTo" type="text" placeholder=0>
+							<div class="ui basic label">seconds</div>
+						</div>
+					</div>
+
+					<div class="ui segment">
+						<div class="ui fluid basic buttons">
 							<button id="restart-footage" class="ui compact icon button">
-								<i class="retweet icon"></i>
+								<i class="retweet icon"></i> Restart footage
 							</button>
 
 							<button id="toggle-footage" class="ui compact icon button">
-								{{{ footageStatus }}}
+								{{{ footageStatus }}} footage
 							</button>
 						</div>
 					</div>
@@ -46,14 +55,27 @@
 
 			</div>
 
-			<div id="components" class="ui column">
-				<h3 class="ui dividing header">Alertness</h3>
-                  {{#each events}}
-                    {{> eventEdit}}
-                  {{/each}}
-                  {{> eventSubmit}}
-				<div class="ui segments">
+			<div id="manager" class="ui column">
+				<h3 class="ui dividing header">
+					Scenario manager
+				</h3>
+
+				<div class="ui fluid buttons">
+					<button id="add-led" class="ui yellow basic icon button">
+						<i class="idea icon"></i>
+						add led event
+					</button>
+					<button id="add-street" class="ui blue basic icon button">
+						<i class="home icon"></i>
+						add street event
+					</button>
 				</div>
+
+				{{#each events}}
+
+				{{> eventEdit}}
+
+				{{/each}}
 			</div>
 		</div>
 	</section>

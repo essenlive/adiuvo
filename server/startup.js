@@ -7,12 +7,12 @@ Meteor.startup(function(){
 			srcRoot: "https://s3.eu-central-1.amazonaws.com/adiuvobucket",
 		},
 		controller : {
-			fScenario : "1",
+			fScenario : "4",
 			fCurrentTime : 0,
 			fStatus : 0,
 		},
 		status : {
-			fScenario : "1",
+			fScenario : "4",
 			fCurrentTime : 0,
 			fStatus : 0,
 		}

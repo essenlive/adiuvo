@@ -1,32 +1,101 @@
 <template name="eventEdit">
-    <form>
-        <div class="ui horizontal segments">
-            <h4 class="ui segment header">{{name}}</h4>
-            <div class="ui basic right aligned segment">
-                <div class="inline field">
-                    <div class="ui toggle checkbox">
-                        <!-- TODO: Checked !-->
-                        <input name="active" type="checkbox" tabindex="0" class="hidden">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui segment">
-            <div class="inline field">
-                <label>Street Name</label>
-                <input type="text" name="name" value="{{name}}" placeholder="main street">
-            </div>
-            <div class="inline field">
-                <label>Map Image File</label>
-                <input type="text" name="filename" value="{{filename}}" placeholder="main.jpg">
-            </div>
-            <div class="inline field">
-                <label>Arrival Time(miliseconds)</label>
-                <input type="text" name="arriveTime" value="{{arriveTime}}" placeholder="12500">
-            </div>
-            <input type="submit" value="Submit" class="btn btn-primary submit"/>
-            <hr/>
-            <a class="btn btn-danger delete" href="#">Delete</a>
-        </div>
-    </form>
+
+	{{#if $eq this.type "led"}}
+	{{> ledEvent}}
+	{{/if}}
+	{{#if $eq this.type "street"}}
+	{{> streetEvent}}
+	{{/if}}
+</template>
+
+<template name="streetEvent">
+	<div class="ui horizontal segments">
+		<div class="ui blue segment">
+			<i class="ui icon home"></i>
+		</div>
+
+		<form class="ui blue segment">
+			<div class="inline hidden field">
+				<label>Type</label>
+				<input type="text" name="type" value="{{type}}">
+			</div>
+			<div class="inline hidden field">
+				<label>Scenario</label>
+				<input type="text" name="scenarioId" value="{{scenarioId}}">
+			</div>
+			<div class="fields">
+				<div class="inline field">
+					<label>Street Name</label>
+					<input type="text" name="name" value="{{name}}" placeholder="main street">
+				</div>
+				<div class="inline field">
+					<label>Map Image File</label>
+					<input type="text" name="filename" value="{{filename}}" placeholder="main.jpg">
+				</div>
+			</div>
+			<div class="fields">
+				<div class="inline field">
+					<label>Arrival Time (miliseconds)</label>
+					<input type="number" name="arriveTime" value="{{arriveTime}}" placeholder=0>
+				</div>
+			</div>
+			<div class="ui buttons">
+				<input type="submit" value="Save" class="ui button positive submit"/>
+				<a class="ui button negative delete" href="#">Delete</a>
+			</div>
+		</form>
+	</div>
+</template>
+
+<template name="ledEvent">
+	<div class="ui horizontal segments">
+		<div class="ui yellow segment">
+			<i class="ui icon idea"></i>
+		</div>
+
+		<form class="ui yellow segment">
+			<div class="inline hidden field">
+				<label>Type</label>
+				<input type="text" name="type" value="{{type}}">
+			</div>
+			<div class="inline hidden field">
+				<label>Scenario</label>
+				<input type="text" name="scenarioId" value="{{scenarioId}}">
+			</div>
+			<div class="fields">
+				<div class="inline field">
+					<label>Color (rgbw)</label>
+					<input type="text" name="color" value="{{color}}" placeholder="0000">
+				</div>
+				<div class="inline field">
+					<label>Animation</label>
+					<input type="text" name="filename" value="{{animation}}" placeholder="0">
+				</div>
+			</div>
+			<div class="fields">
+				<div class="inline field">
+					<label>Start Led</label>
+					<input type="text" name="startLed" value="{{startLed}}" placeholder="000">
+				</div>
+				<div class="inline field">
+					<label>End Led</label>
+					<input type="text" name="endLed" value="{{endLed}}" placeholder="100">
+				</div>
+			</div>
+			<div class="fields">
+				<div class="inline field">
+					<label>Arrival Time(miliseconds)</label>
+					<input type="number" name="arriveTime" value="{{arriveTime}}" placeholder=0>
+				</div>
+				<div class="inline field">
+					<label>Duration (miliseconds)</label>
+					<input type="number" name="duration" value="{{duration}}" placeholder=100>
+				</div>
+			</div>
+			<div class="ui buttons">
+				<input type="submit" value="Save" class="ui button positive submit"/>
+				<a class="ui button negative delete" href="#">Delete</a>
+			</div>
+		</form>
+	</div>
 </template>
