@@ -20,6 +20,7 @@ Template.controls.events({
 
 		Meteor.call('updateState', {"status.fScenario": fScenario } );
 		Meteor.call('updateState', {"controller.fScenario": fScenario } );
+
 	},
 	'click #toggle-footage': function () {
 		footageControls.togglePlay();
@@ -36,4 +37,8 @@ Template.controls.helpers({
 		if (state && state.status.fStatus === 0 ) return '<i class="pause icon"></i>'
 			else { return '<i class="play icon"></i>' }
 		},
+	events: function() {
+		var state = State.findOne({name: 'state'});
+		return Events.find({scenarioId: state.controller.fScenario});
+	},
 })

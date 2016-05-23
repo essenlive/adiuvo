@@ -47,8 +47,13 @@
 			</div>
 
 			<div id="components" class="ui column">
-				<h3 class="ui dividing header">Scenario manager</h3>
-
+				<h3 class="ui dividing header">Alertness</h3>
+                  {{#each events}}
+                    {{> eventEdit}}
+                  {{/each}}
+                  {{> eventSubmit}}
+				<div class="ui segments">
+				</div>
 			</div>
 		</div>
 	</section>
