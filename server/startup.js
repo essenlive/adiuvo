@@ -8,14 +8,15 @@ Meteor.startup(function(){
 		},
 		controller : {
 			fScenario : "1",
+			fCurrentTime : 0,
+			fStatus : 0,
 		},
 		status : {
-			fScenario : "4",
+			fScenario : "1",
 			fCurrentTime : 0,
 			fStatus : 0,
 		}
 	});
-
 });
 
 
@@ -26,5 +27,8 @@ Meteor.methods({
 		State.update({name: "state"}, { 
 			$set: doc
 		});
+	},
+	eventInsert: function(event) {
+		Events.insert(event);
 	},
 });
