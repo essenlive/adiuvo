@@ -1,7 +1,7 @@
 Meteor.startup(function() {
 	try{
 		serialPort = new SerialPort.SerialPort('/COM3', {
-			baudrate: 38400,
+			baudrate: 4800,
 			parser: SerialPort.parsers.readline('\r\n')
 		}); 
 	}
@@ -26,4 +26,4 @@ Meteor.methods({
 		console.log(message);
 		return message;
 	},
-}); 
+});  

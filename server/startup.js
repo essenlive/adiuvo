@@ -10,7 +10,7 @@ Meteor.startup(function(){
 			fScenario : "1",
 		},
 		status : {
-			fScenario : "1",
+			fScenario : "4",
 			fCurrentTime : 0,
 			fStatus : 0,
 		}

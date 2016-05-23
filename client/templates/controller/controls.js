@@ -25,7 +25,7 @@ Template.controls.events({
 		footageControls.togglePlay();
 	},
 	'click #restart-footage': function () {
-		// footageControls.goTo(0);
+		footageControls.goTo(0);
 	},
 
 });
