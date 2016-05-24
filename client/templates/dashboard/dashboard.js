@@ -1,3 +1,7 @@
+WAIT_TIME = 2000;
+SIGN_SCALE = 10;
+IMAGE_SCALE = 10;
+
 Template.dashboard.onCreated(function () {
     this.WAIT_TIME = 2000;
     var scenario = State.findOne({name: 'state'}).controller.fScenario;
@@ -12,7 +16,7 @@ Template.dashboard.onCreated(function () {
     }
     signs = [];
     for (var i = 0; i < events.length; i++) {
-        sign = { 
+        sign = {
             text: events[i].name,
             image: events[i].filename,
             start: start_times[i],
@@ -25,39 +29,20 @@ Template.dashboard.onCreated(function () {
 
 
 Template.dashboard.onRendered(function () {
-    var height = $(document).height();
-    var width = $(document).width();
-
-    var top = 0.1667*height;
-    var top2 = 0.01*height;
-
-    $("<style>").prop("type", "text/css")
-        .html("\
-                .grow {\
-                    opacity:1.0;\
-                        -webkit-transform:scale("+ 2 + ") translateY("+top+"px);\
-                        transform:scale(" + 2 + ") translateY("+top+"px);\
-                }\
-                .grow.streetname {\
-                    opacity:1.0;\
-                        -webkit-transform:scale(" + 2 + ") translateY("+top2+"px);\
-                        transform:scale(" + 2 + ") translateY("+top2+"px);\
-                }\
-                ")
-        .appendTo("head");
     play();
 });
 
 play = function(startTime) {
     signs = this.signs;
     for (var i = 0; i < signs.length; i++) {
-        setTimeout(launchSign.bind(null, signs[i].animation_length), signs[i].start);
+        Meteor.setTimeout(launchSign.bind(null, signs[i].animation_length), signs[i].start);
     }
 }
 
 addSignText = function (text) {
+    var street= text.replace('_', ' ');
     $outer = $(".outer");
-    $outer.append("<div class='streetname inner "+text+"'>"+text+"</div>");
+    $outer.append("<div class='streetname inner "+text+"'>"+street+"</div>");
 }
 
 addSignImage = function (text, url) {
@@ -66,14 +51,13 @@ addSignImage = function (text, url) {
 }
 
 addSign = function (streetname, streetimage) {
-    console.log("add " + streetname);
     addSignImage(streetname, streetimage);
     addSignText(streetname);
 }
 
 setGrow = function (time) {
-    $('.inner').css('transition',time.toString()+'ms');
-    $('.inner').css('-webkit-transition',time.toString()+'ms');
+    $('.inner').css('transition',time+'ms');
+    $('.inner').css('-webkit-transition',time+'ms');
 }
 
 growSign = function (time) {
@@ -88,20 +72,47 @@ centerObj = function (classname) {
 }
 
 removeSign = function (streetname) {
-    console.log("remove " + streetname);
     $('.'+streetname).hide();
 }
 
-launchSign = function (time) { 
+launchSign = function (time) {
     var sign = this.signs.shift();
     var streetname = sign.text.replace(' ', '_');
-    var streetimage = sign.image; 
+    var streetimage = sign.image;
     addSign(streetname, streetimage);
+
+    var screenHeight = $(document).height();
+    var screenWidth = $(document).width();
+    var signHeight = $('.streetname').outerHeight();
+    var imageHeight = $('.streetimage').outerHeight();
+
+
+    var imageTop = ((3*screenHeight/4.0) - (imageHeight*IMAGE_SCALE))/IMAGE_SCALE;
+    var signTop = ((imageTop*IMAGE_SCALE) - (signHeight*SIGN_SCALE))/SIGN_SCALE;
+
+    console.log('((3*' + screenHeight + '/4) - (' + imageHeight + '*' + IMAGE_SCALE + '))/' + IMAGE_SCALE);
+    console.log(imageTop);
+    console.log('((' + imageTop + '*' + IMAGE_SCALE + ') - (' + signHeight + '*' + SIGN_SCALE + '))/' + SIGN_SCALE);
+    console.log(signTop);
+
+    $('style').html("\
+                .grow.streetimage{\
+                    opacity:1.0;\
+                        -webkit-transform:scale("+ IMAGE_SCALE + ") translateY("+ imageTop +"px);\
+                        transform:scale(" + IMAGE_SCALE + ") translateY("+ imageTop +"px);\
+                }\
+                .grow.streetname {\
+                    opacity:1.0;\
+                        -webkit-transform:scale(" + SIGN_SCALE + ") translateY("+ signTop +"px);\
+                        transform:scale(" + SIGN_SCALE + ") translateY("+ signTop +"px);\
+                }\
+            ");
+
+
     centerObj('streetname');
     centerObj('streetimage');
     growSign(time);
-    console.log(time);
-    setTimeout(removeSign.bind(null, streetname), (time + this.WAIT_TIME));
+    Meteor.setTimeout(removeSign.bind(null, streetname), (parseInt(time) + WAIT_TIME));
 }
 
 Template.dashboard.helpers({
