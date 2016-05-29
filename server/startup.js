@@ -7,15 +7,29 @@ Meteor.startup(function(){
 			srcRoot: "https://s3.eu-central-1.amazonaws.com/adiuvobucket",
 		},
 		controller : {
-			fScenario : "4",
-			fCurrentTime : 0,
-			fStatus : 0,
+			scenario : "4",
 		},
 		status : {
-			fScenario : "4",
-			fCurrentTime : 0,
-			fStatus : 0,
-		}
+			scenario : "4",
+			goToTime : 0,
+			currentTime : 0,
+			duration : 20,
+			status : 1,
+		},
+		scenarios : [
+		{
+			name : "Overtaking in the city",
+			index : 1
+		},
+		{
+			name : "Maneuvering in the city",
+			index : 3
+		},
+		{
+			name : "Cyclist overtaking",
+			index : 4
+		},
+		]
 	});
 });
 

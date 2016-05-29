@@ -1,7 +1,7 @@
 Template.layout.helpers({
-  route: function(){
-    return Router.current().route.getName();
-  },
+	route: function(){
+		return Router.current().route.getName();
+	},
 })
 
 Template.layout.onRendered(function(){
@@ -13,7 +13,7 @@ Template.layout.onRendered(function(){
 		if ( xp<0 ) {xp = 0};
 		if ( yp>100 ) {yp = 100};
 		if ( xp>100 ) {xp = 100};
-	  $("#pos").css({ left: xp + "%", top: yp + "%" });
+		$("#pos").css({ left: xp + "%", top: yp + "%" });
 	});
 });
 

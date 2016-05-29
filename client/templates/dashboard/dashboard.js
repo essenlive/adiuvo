@@ -4,7 +4,7 @@ IMAGE_SCALE = 10;
 
 Template.dashboard.onCreated(function () {
     this.WAIT_TIME = 2000;
-    var scenario = State.findOne({name: 'state'}).controller.fScenario;
+    var scenario = State.findOne({name: 'state'}).controller.scenario;
     var events = Events.find({scenarioId: scenario}).fetch();
     var end_times = [];
     var start_times = [0];
@@ -96,17 +96,17 @@ launchSign = function (time) {
     console.log(signTop);
 
     $('style').html("\
-                .grow.streetimage{\
-                    opacity:1.0;\
-                        -webkit-transform:scale("+ IMAGE_SCALE + ") translateY("+ imageTop +"px);\
-                        transform:scale(" + IMAGE_SCALE + ") translateY("+ imageTop +"px);\
-                }\
-                .grow.streetname {\
-                    opacity:1.0;\
-                        -webkit-transform:scale(" + SIGN_SCALE + ") translateY("+ signTop +"px);\
-                        transform:scale(" + SIGN_SCALE + ") translateY("+ signTop +"px);\
-                }\
-            ");
+        .grow.streetimage{\
+            opacity:1.0;\
+            -webkit-transform:scale("+ IMAGE_SCALE + ") translateY("+ imageTop +"px);\
+            transform:scale(" + IMAGE_SCALE + ") translateY("+ imageTop +"px);\
+        }\
+        .grow.streetname {\
+            opacity:1.0;\
+            -webkit-transform:scale(" + SIGN_SCALE + ") translateY("+ signTop +"px);\
+            transform:scale(" + SIGN_SCALE + ") translateY("+ signTop +"px);\
+        }\
+        ");
 
 
     centerObj('streetname');

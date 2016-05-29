@@ -16,15 +16,15 @@
 				<div class="ui attached segments">
 
 					<div class="ui segment">
-						<div class="ui inline fluid field selection dropdown">
+						<div class="ui fluid inline field selection dropdown">
 							<label>Scenario</label>
-							<input type="hidden" name="fScenario">
+							<input type="hidden" name="scenario">
 							<i class="dropdown icon"></i>
 							<div class="default text">Scenarios</div>
 							<div class="menu">
-								<div class="item" data-value="1">Overtaking in the city</div>
-								<div class="item" data-value="3">Maneuvering in the city</div>
-								<div class="item" data-value="4">US</div>
+								{{#each scenarios}}
+								<div class="item" data-value="{{ index }}">{{ name }}</div>
+								{{/each}}
 							</div>
 						</div>
 					</div>
@@ -32,10 +32,12 @@
 					<div class="ui segment">
 
 						<div class="ui fluid right labeled input">
-							<div class="ui label">go to</div>
 							<input name="goTo" type="text" placeholder=0>
 							<div class="ui basic label">seconds</div>
 						</div>
+						<button id="goTo" class="ui fluid positive button">
+							go
+						</button>
 					</div>
 
 					<div class="ui segment">

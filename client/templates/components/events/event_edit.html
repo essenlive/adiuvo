@@ -35,7 +35,7 @@
 			</div>
 			<div class="fields">
 				<div class="inline field">
-					<label>Arrival Time (miliseconds)</label>
+					<label>Arrival Time (seconds)</label>
 					<input type="number" name="arriveTime" value="{{arriveTime}}" placeholder=0>
 				</div>
 			</div>
@@ -64,13 +64,27 @@
 			</div>
 			<div class="fields">
 				<div class="inline field">
-					<label>Color (rgbw)</label>
-					<input type="text" name="color" value="{{color}}" placeholder="0000">
+					<label>Color Red</label>
+					<input type="text" name="colorRed" value="{{colorRed}}" placeholder="000">
 				</div>
 				<div class="inline field">
-					<label>Animation</label>
-					<input type="text" name="filename" value="{{animation}}" placeholder="0">
+					<label>Color Green</label>
+					<input type="text" name="colorGreen" value="{{colorGreen}}" placeholder="000">
 				</div>
+			</div>
+			<div class="fields">
+				<div class="inline field">
+					<label>Color Blue</label>
+					<input type="text" name="colorBlue" value="{{colorBlue}}" placeholder="000">
+				</div>
+				<div class="inline field">
+					<label>Color White</label>
+					<input type="text" name="colorWhite" value="{{colorWhite}}" placeholder="000">
+				</div>
+			</div>
+			<div class="field">
+				<label>Animation</label>
+				<input type="text" name="animation" value="{{animation}}" placeholder="0">
 			</div>
 			<div class="fields">
 				<div class="inline field">
@@ -84,11 +98,11 @@
 			</div>
 			<div class="fields">
 				<div class="inline field">
-					<label>Arrival Time(miliseconds)</label>
+					<label>Arrival Time(seconds)</label>
 					<input type="number" name="arriveTime" value="{{arriveTime}}" placeholder=0>
 				</div>
 				<div class="inline field">
-					<label>Duration (miliseconds)</label>
+					<label>Duration (seconds)</label>
 					<input type="number" name="duration" value="{{duration}}" placeholder=100>
 				</div>
 			</div>

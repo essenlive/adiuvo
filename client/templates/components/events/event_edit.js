@@ -5,7 +5,8 @@ Template.eventEdit.events({
     var currentEventId = this._id;
     var state = State.findOne({name: 'state'});
 
-    var eventProperties = $(e.target).form('get values')
+    var eventProperties = $(e.target).form('get values');
+    eventProperties.arriveTime = Number(eventProperties.arriveTime);
     Events.update(currentEventId, {$set: eventProperties}, function(error) {
       if (error) {
         console.log(error);

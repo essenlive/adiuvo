@@ -9,8 +9,8 @@ Template.controls.onRendered(function () {
 	setTimeout(function(){
 		var state = State.findOne({name: 'state'});
 		if (state) {
-			var fScenario = oStatus.update( state.controller, state.status );
-			Meteor.call('updateState', {"controller.fScenario": fScenario });
+			var scenario = oStatus.update( state.controller, state.status );
+			Meteor.call('updateState', {"controller.scenario": scenario });
 			$('#controller').form('set values', state.controller );
 		}
 	}, 500);
@@ -18,20 +18,51 @@ Template.controls.onRendered(function () {
 });
 
 Template.controls.events({
-	//update the mongo profile on each change
 
 	"change input":function(){
-		var fScenario =  $('#controller').form('get values').fScenario;
+		var scenario =  $('#controller').form('get values').scenario;
+		if ( scenario !== State.findOne({name: 'state'}).status.scenario) {
 
-		Meteor.call('updateState', {"status.fScenario": fScenario } );
-		Meteor.call('updateState', {"controller.fScenario": fScenario } );
+
+			var video = document.createElement('video');
+			video.preload = 'metadata';
+
+			video.onloadedmetadata = function() {
+				window.URL.revokeObjectURL(this.src)
+				var duration = video.duration;﻿
+
+				console.log(duration);
+
+				Meteor.call('loadScenario', scenario, duration, function(error, result) {
+					if (error)	console.log(error);
+				});
+
+			}
+
+			video.src = "/video/Valeo_Footage_Front_View_0" + scenario + ".webm"; 
+
+		}
 
 	},
 	'click #toggle-footage': function () {
-		footageControls.togglePlay();
+		Meteor.call('togglePlay', function(error, result) {
+			if (error)
+				console.log(error);
+		});
 	},
 	'click #restart-footage': function () {
-		footageControls.goTo(0);
+		Meteor.call('goTo', 0, function(error, result) {
+			if (error)
+				console.log(error);
+		});	
+	},
+	'click #goTo': function () {
+		var goTo = $('#controller').form('get values').goTo;
+		Meteor.call('goTo', goTo, function(error, result) {
+			if (error)
+				console.log(error);
+		});
+
 	},
 	'click #add-street': function(e) {
 		e.preventDefault();
@@ -42,9 +73,8 @@ Template.controls.events({
 			name: "default street",
 			filename: "street.jpg",
 			arriveTime: 0,
-			scenarioId: state.status.fScenario
+			scenarioId: state.status.scenario
 		};
-		console.log("submit " + event);
 
 		Meteor.call('eventInsert', event, function(error, result) {
 			if (error)
@@ -57,13 +87,16 @@ Template.controls.events({
 		var state = State.findOne({name: 'state'});
 		var event = {
 			type: "led",
-			color: "0000",
-			animation: 0,
+			colorRed: "000",
+			colorGreen: "000",
+			colorBlue: "000",
+			colorWhite: "000",
+			animation: 1,
 			startLed: 0,
 			endLed: 100,
 			arriveTime: 0,
-			duration: 100,
-			scenarioId: state.status.fScenario
+			duration: 10,
+			scenarioId: state.status.scenario
 		};
 		Meteor.call('eventInsert', event, function(error, result) {
 			if (error)
@@ -71,20 +104,27 @@ Template.controls.events({
 		});
 	},
 
+
 });
 
 Template.controls.helpers({
 	footageStatus: function(){
 		var state = State.findOne({name: 'state'});
-		if (state && state.status.fStatus === 0 ) return '<i class="pause icon"></i> Pause'
+		if (state && state.status.status === 0 ) return '<i class="pause icon"></i> Pause'
 			else { return '<i class="play icon"></i> Play' }
 		},
 	events: function() {
 		var state = State.findOne({name: 'state'});
-		if (state && state.status.fScenario ) 
+		if (state && state.status.scenario ) 
 			return Events.find(
-				{scenarioId: state.controller.fScenario},
+				{scenarioId: state.controller.scenario},
 				{sort: { arriveTime: 1 }},
 				);
+	},
+	scenarios: function() {
+		var state = State.findOne({name: 'state'});
+		if (state && state.scenarios ) {
+			return state.scenarios;
+		}
 	},
 })
