@@ -7,6 +7,7 @@ Template.eventEdit.events({
 
     var eventProperties = $(e.target).form('get values');
     eventProperties.arriveTime = Number(eventProperties.arriveTime);
+    eventProperties.scenarioId = Number(eventProperties.scenarioId);
     Events.update(currentEventId, {$set: eventProperties}, function(error) {
       if (error) {
         console.log(error);

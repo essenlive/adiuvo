@@ -36,7 +36,19 @@ Meteor.methods({
 	},
 	sendToEye: function (message) {
 		eyeSerialPort.write(message);
-		console.log("eye messge :" + message);
+		console.log("eye message :" + message + "\n");
+		return message;
+	},
+	seen: function () {
+		message = '01\n';
+		eyeSerialPort.write(message);
+		console.log("eye message :" + message);
+		return message;
+	},
+	stop: function () {
+		message = '10\n';
+		eyeSerialPort.write(message);
+		console.log("eye message :" + message);
 		return message;
 	},
 });  

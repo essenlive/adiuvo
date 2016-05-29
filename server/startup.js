@@ -15,6 +15,11 @@ Meteor.startup(function(){
 			currentTime : 0,
 			duration : 20,
 			status : 1,
+			street : {
+				name : "",
+				src : "",
+				visible : false,
+			}
 		},
 		scenarios : [
 		{

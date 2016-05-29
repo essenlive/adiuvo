@@ -33,7 +33,7 @@ Template.controls.events({
 
 				console.log(duration);
 
-				Meteor.call('loadScenario', scenario, duration, function(error, result) {
+				Meteor.call('loadScenario', Number(scenario), duration, function(error, result) {
 					if (error)	console.log(error);
 				});
 
@@ -73,6 +73,7 @@ Template.controls.events({
 			name: "default street",
 			filename: "street.jpg",
 			arriveTime: 0,
+			duration: 10,
 			scenarioId: state.status.scenario
 		};
 

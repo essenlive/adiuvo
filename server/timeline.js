@@ -22,6 +22,7 @@ Meteor.methods({
 			if (typeof footageTime !== 'undefined') {
 				Meteor.clearInterval(footageTime);
 			}
+
 			var ct = State.findOne({name: 'state'}).status.currentTime;
 			footageTime = Meteor.setInterval( function(){
 				Meteor.call('updateState',{"status.currentTime" : ct });
@@ -48,23 +49,27 @@ Meteor.methods({
 						var colorWhite = "" + events[eventIndex].colorWhite * 10;
 						colorWhite = pad.substring(0, pad.length - colorWhite.length) + colorWhite;
 
-
-
-						var message = 
-						animation + 
-						startLed + 
-						endLed + 
-						duration + 
-						colorRed + 
-						colorGreen + 
-						colorBlue + 
-						colorWhite + 
-						"."; 
+						var message = animation + startLed + endLed + duration + colorRed + colorGreen + colorBlue + colorWhite + "."; 
 						console.log(message);
 
 						Meteor.call("sendToLed", message );
 					}
-
+					if (events[eventIndex].type === 'street') {
+						
+						console.log(events[eventIndex]);
+						Meteor.call('updateState',{
+							"status.street" : {
+								name : events[eventIndex].name,
+								src : events[eventIndex].filename,
+								visible : true,
+							}
+						});
+						Meteor.setTimeout(function(){ 
+							Meteor.call('updateState',{"status.street.visible" : false });
+						},  
+						events[eventIndex].duration * 1000
+						);
+					}
 
 					eventIndex++;
 				}
@@ -93,6 +98,11 @@ Meteor.methods({
 				currentTime : 0,
 				duration : duration,
 				status : 1,
+				street : {
+					name : "default",
+					src : "",
+					visible : false,
+				}
 
 			},
 			"controller.scenario": scenario

@@ -2,7 +2,9 @@
 		var state = State.findOne({name: 'state'});
 		if (state) {
 			var goTo = state && state.status.goToTime;
-			$("#front-footage-vid")[0].currentTime = goTo;
+			if (typeof $("#front-footage-vid")[0] !== 'undefined') {
+				$("#front-footage-vid")[0].currentTime = goTo;
+			}
 			console.log("goto" + goTo);
 		}
 	});
@@ -35,8 +37,11 @@
 			var state = State.findOne({name: 'state'});
 			if (state) {
 				var goTo = state && state.status.goToTime;
-				$("#rear-footage-vid")[0].currentTime = goTo;
-				console.log("goto" + goTo);
+				if (typeof $("#rear-footage-vid")[0] !== 'undefined') {
+
+					$("#rear-footage-vid")[0].currentTime = goTo;
+					console.log("goto" + goTo);
+				}
 			}
 		});
 		Tracker.autorun(function() {
@@ -67,8 +72,11 @@
 				var state = State.findOne({name: 'state'});
 				if (state) {
 					var goTo = state && state.status.goToTime;
-					$("#left-footage-vid")[0].currentTime = goTo;
-					console.log("goto" + goTo);
+					if (typeof $("#left-footage-vid")[0] !== 'undefined') {
+
+						$("#left-footage-vid")[0].currentTime = goTo;
+						console.log("goto" + goTo);
+					}
 				}
 			});
 			var state = State.findOne({name: 'state'});
@@ -98,8 +106,10 @@
 			var state = State.findOne({name: 'state'});
 			if (state) {
 				var goTo = state && state.status.goToTime;
-				$("#right-footage-vid")[0].currentTime = goTo;
-				console.log("goto" + goTo);
+				if (typeof $("#right-footage-vid")[0] !== 'undefined') {
+					$("#right-footage-vid")[0].currentTime = goTo;
+					console.log("goto" + goTo);
+				}
 			}
 		});
 		Tracker.autorun(function() {
