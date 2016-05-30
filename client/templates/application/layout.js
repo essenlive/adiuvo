@@ -6,6 +6,10 @@ Template.layout.helpers({
 
 Template.layout.onRendered(function(){
 
+	Meteor.setTimeout(function(){
+		Meteor.call('loadScenario',4);
+	}, 500);
+
 	Tracker.autorun(function () {
 		var yp = Session.get('y') / $(window).height() * 100;
 		var xp = Session.get('x') / $(window).width() * 100;

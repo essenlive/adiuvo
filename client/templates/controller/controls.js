@@ -6,7 +6,7 @@ Template.controls.onRendered(function () {
 	// Update profile.controller and profile.components values
 
 
-	setTimeout(function(){
+	Meteor.setTimeout(function(){
 		var state = State.findOne({name: 'state'});
 		if (state) {
 			var scenario = oStatus.update( state.controller, state.status );
@@ -19,9 +19,9 @@ Template.controls.onRendered(function () {
 
 Template.controls.events({
 
-	"change input":function(){
+	"change #controller":function(){
 		var scenario =  $('#controller').form('get values').scenario;
-		if ( scenario !== State.findOne({name: 'state'}).status.scenario) {
+		if ( scenario !== State.findOne({name: 'state'}).controller.scenario) {
 
 
 			var video = document.createElement('video');
@@ -30,8 +30,6 @@ Template.controls.events({
 			video.onloadedmetadata = function() {
 				window.URL.revokeObjectURL(this.src)
 				var duration = video.duration;﻿
-
-				console.log(duration);
 
 				Meteor.call('loadScenario', Number(scenario), duration, function(error, result) {
 					if (error)	console.log(error);
@@ -57,7 +55,8 @@ Template.controls.events({
 		});	
 	},
 	'click #goTo': function () {
-		var goTo = $('#controller').form('get values').goTo;
+		var goTo = Number($('#controller').form('get values').goTo);
+		console.log(goTo);
 		Meteor.call('goTo', goTo, function(error, result) {
 			if (error)
 				console.log(error);
@@ -91,7 +90,7 @@ Template.controls.events({
 			colorRed: "000",
 			colorGreen: "000",
 			colorBlue: "000",
-			colorWhite: "000",
+			colorWhite: "100",
 			animation: 1,
 			startLed: 0,
 			endLed: 100,
@@ -111,7 +110,7 @@ Template.controls.events({
 Template.controls.helpers({
 	footageStatus: function(){
 		var state = State.findOne({name: 'state'});
-		if (state && state.status.status === 0 ) return '<i class="pause icon"></i> Pause'
+		if ( !(state && state.controller.pause) ) return '<i class="pause icon"></i> Pause'
 			else { return '<i class="play icon"></i> Play' }
 		},
 	events: function() {

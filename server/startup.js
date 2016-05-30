@@ -8,13 +8,13 @@ Meteor.startup(function(){
 		},
 		controller : {
 			scenario : "4",
+			goToTime : false,
+			pause : true,
 		},
 		status : {
 			scenario : "4",
-			goToTime : 0,
 			currentTime : 0,
 			duration : 20,
-			status : 1,
 			street : {
 				name : "",
 				src : "",
