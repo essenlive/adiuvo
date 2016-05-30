@@ -11,7 +11,6 @@ Template.intro.helpers({
 	},
 	start: function(){
 		var state = State.findOne({name: 'state'})
-		console.log(state && state.status.currentTime > 5 );
 		return !(state && state.status.currentTime > 5);
 	},
 });

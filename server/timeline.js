@@ -115,6 +115,10 @@ Meteor.methods({
 	goTo : function(timeIndex){
 		Meteor.call('updateState', { "controller.goToTime": true, "status.currentTime" : timeIndex} );
 		Meteor.call('pause');
+		Meteor.setTimeout(function(){
+			Meteor.call('updateState', { "controller.goToTime": false} );
+		}, 250);
+
 		console.log('-- goTo : ' + timeIndex);
 
 	},
