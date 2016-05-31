@@ -23,25 +23,21 @@
 				<label>Scenario</label>
 				<input type="text" name="scenarioId" value="{{scenarioId}}">
 			</div>
-			<div class="fields">
-				<div class="inline field">
-					<label>Street Name</label>
-					<input type="text" name="name" value="{{name}}" placeholder="main street">
-				</div>
-				<div class="inline field">
-					<label>Map Image File</label>
-					<input type="text" name="filename" value="{{filename}}" placeholder="main.jpg">
-				</div>
+			<div class="inline field">
+				<label>Street Name</label>
+				<input type="text" name="name" value="{{name}}" placeholder="main street">
 			</div>
-			<div class="fields">
-				<div class="inline field">
-					<label>Arrival Time (seconds)</label>
-					<input type="number" name="arriveTime" value="{{arriveTime}}" placeholder=0>
-				</div>
-				<div class="inline field">
-					<label>Duration (seconds)</label>
-					<input type="number" name="duration" value="{{duration}}" placeholder=100>
-				</div>
+			<div class="inline field">
+				<label>Map Image File</label>
+				<input type="text" name="filename" value="{{filename}}" placeholder="main.jpg">
+			</div>
+			<div class="inline field">
+				<label>Arrival Time (seconds)</label>
+				<input type="number" name="arriveTime" value="{{arriveTime}}" placeholder=0>
+			</div>
+			<div class="inline field">
+				<label>Duration (seconds)</label>
+				<input type="number" name="duration" value="{{duration}}" placeholder=100>
 			</div>
 			<div class="ui buttons">
 				<input type="submit" value="Save" class="ui button positive submit"/>
@@ -66,51 +62,64 @@
 				<label>Scenario</label>
 				<input type="text" name="scenarioId" value="{{scenarioId}}">
 			</div>
-			<div class="fields">
-				<div class="inline field">
-					<label>Color Red</label>
-					<input type="text" name="colorRed" value="{{colorRed}}" placeholder="000">
-				</div>
-				<div class="inline field">
-					<label>Color Green</label>
-					<input type="text" name="colorGreen" value="{{colorGreen}}" placeholder="000">
-				</div>
-			</div>
-			<div class="fields">
-				<div class="inline field">
-					<label>Color Blue</label>
-					<input type="text" name="colorBlue" value="{{colorBlue}}" placeholder="000">
-				</div>
-				<div class="inline field">
-					<label>Color White</label>
-					<input type="text" name="colorWhite" value="{{colorWhite}}" placeholder="000">
+
+			<div class="ui fluid inline field selection dropdown">
+				<label>Color</label>
+				<input type="hidden" name="color">
+				<i class="dropdown icon"></i>
+				<div class="default text">red</div>
+				<div class="menu">
+					<div class="item" data-value=0>red</div>
+					<div class="item" data-value=1>orange</div>
+					<div class="item" data-value=2>green</div>
+					<div class="item" data-value=3>white</div>
 				</div>
 			</div>
-			<div class="field">
+
+			<div class="ui fluid inline field selection dropdown">
 				<label>Animation</label>
-				<input type="text" name="animation" value="{{animation}}" placeholder="0">
-			</div>
-			<div class="fields">
-				<div class="inline field">
-					<label>Start Led</label>
-					<input type="text" name="startLed" value="{{startLed}}" placeholder="000">
-				</div>
-				<div class="inline field">
-					<label>End Led</label>
-					<input type="text" name="endLed" value="{{endLed}}" placeholder="100">
-				</div>
-			</div>
-			<div class="fields">
-				<div class="inline field">
-					<label>Arrival Time(seconds)</label>
-					<input type="number" name="arriveTime" value="{{arriveTime}}" placeholder=0>
-				</div>
-				<div class="inline field">
-					<label>Duration (seconds)</label>
-					<input type="number" name="duration" value="{{duration}}" placeholder=100>
+				<input type="hidden" name="animation">
+				<i class="dropdown icon"></i>
+				<div class="default text">steady</div>
+				<div class="menu">
+					<div class="item" data-value=1>runner</div>
+					<div class="item" data-value=2>fade</div>
+					<div class="item" data-value=3>cascade</div>
+					<div class="item" data-value=4>flash</div>
+					<div class="item" data-value=5>steady</div>
 				</div>
 			</div>
-			<div class="ui buttons">
+
+			<div class="ui fluid inline field selection dropdown">
+				<label>Zone</label>
+				<input type="hidden" name="zone">
+				<i class="dropdown icon"></i>
+				<div class="default text">1</div>
+				<div class="menu">
+					<div class="item" data-value=1>top left</div>
+					<div class="item" data-value=2>mid left</div>
+					<div class="item" data-value=3>bottom left</div>
+					<div class="item" data-value=4>middle left</div>
+					<div class="item" data-value=5>middle right</div>
+					<div class="item" data-value=7>bottom right</div>
+					<div class="item" data-value=8>mid right</div>
+					<div class="item" data-value=9>top right</div>
+					<div class="item" data-value=10>left mirror</div>
+					<div class="item" data-value=11>rear mirror</div>
+					<div class="item" data-value=12>right mirror</div>
+				</div>
+			</div>
+
+			<div class="fluid field">
+				<label>Arrival Time(seconds)</label>
+				<input type="number" name="arriveTime" value="{{arriveTime}}" placeholder=0>
+			</div>
+			<div class="fluid  field">
+				<label>Duration (seconds)</label>
+				<input type="number" name="duration" value="{{duration}}" placeholder=100>
+			</div>
+
+			<div class="ui fluid buttons">
 				<input type="submit" value="Save" class="ui button positive submit"/>
 				<a class="ui button negative delete" href="#">Delete</a>
 			</div>

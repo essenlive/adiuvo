@@ -87,13 +87,9 @@ Template.controls.events({
 		var state = State.findOne({name: 'state'});
 		var event = {
 			type: "led",
-			colorRed: "000",
-			colorGreen: "000",
-			colorBlue: "000",
-			colorWhite: "100",
-			animation: 1,
-			startLed: 0,
-			endLed: 100,
+			color: 1,
+			animation: 5,
+			zone: 1,
 			arriveTime: state.status.currentTime,
 			duration: 2,
 			scenarioId: state.status.scenario

@@ -16,6 +16,7 @@ Meteor.startup(function(){
 			currentTime : 0,
 			duration : 20,
 			ledZone : 0,
+			dashEye: false,
 			street : {
 				name : "",
 				src : "",
