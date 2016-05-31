@@ -1,8 +1,11 @@
 <template name="street">
-	{{#if visible}}
-	<div id="street" class="outer">
-		<div class='streetname inner {{ street_name }}'>{{ name }}</div>
-		<img class='streetimage inner {{ street_name }}' src='{{ src }}'>
+	<div id="street-frame">
+
+		{{#if visible}}
+		<div id="street" class="outer">
+			<div class='streetname inner {{ street_name }}'>{{ name }}</div>
+			<img class='streetimage inner {{ street_name }}' src='{{ src }}'>
+		</div>
+		{{/if}}
 	</div>
-	{{/if}}
 </template>

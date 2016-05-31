@@ -59,6 +59,7 @@ Meteor.methods({
 				//LEDs events
 				if (events[eventIndex].type === 'led') {
 
+					//Creating Serial message
 					console.log("LED event : ");
 					console.log(events[eventIndex]);
 					var pad = "000"
@@ -69,19 +70,25 @@ Meteor.methods({
 					endLed = pad.substring(0, pad.length - endLed.length) + endLed;
 					var duration = "" + events[eventIndex].duration * 10;
 					duration = pad.substring(0, pad.length - duration.length) + duration;
-					var colorRed = "" + events[eventIndex].colorRed * 10;
+					var colorRed = "" + events[eventIndex].colorRed ;
 					colorRed = pad.substring(0, pad.length - colorRed.length) + colorRed;
-					var colorGreen = "" + events[eventIndex].colorGreen * 10;
+					var colorGreen = "" + events[eventIndex].colorGreen ;
 					colorGreen = pad.substring(0, pad.length - colorGreen.length) + colorGreen;
-					var colorBlue = "" + events[eventIndex].colorBlue * 10;
+					var colorBlue = "" + events[eventIndex].colorBlue ;
 					colorBlue = pad.substring(0, pad.length - colorBlue.length) + colorBlue;
-					var colorWhite = "" + events[eventIndex].colorWhite * 10;
+					var colorWhite = "" + events[eventIndex].colorWhite ;
 					colorWhite = pad.substring(0, pad.length - colorWhite.length) + colorWhite;
 
 					var message = animation + startLed + endLed + duration + colorRed + colorGreen + colorBlue + colorWhite + "."; 
 					console.log(message);
-
 					Meteor.call("sendToLed", message );
+
+					//Defining LED zone	
+					var zone = 1;
+					Meteor.call('updateState',{"status.ledZone" : zone });	
+					Meteor.setTimeout(function(){
+						Meteor.call('updateState',{"status.ledZone" : 0 });	
+					}, events[eventIndex].duration * 1000 );
 				}
 
 
@@ -128,6 +135,7 @@ Meteor.methods({
 			"status": {
 				scenario : scenario,
 				currentTime : 0,
+				ledZone : 0,
 				duration : duration,
 				street : {
 					name : "default",

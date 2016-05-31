@@ -15,6 +15,7 @@ Meteor.startup(function(){
 			scenario : "4",
 			currentTime : 0,
 			duration : 20,
+			ledZone : 0,
 			street : {
 				name : "",
 				src : "",

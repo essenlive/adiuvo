@@ -1,6 +1,8 @@
 		Tracker.autorun(function() {
 			var state = State.findOne({name: 'state'});
 			var pause = state && state.controller.pause;
+			if (typeof oldPause === 'undefined') oldPause = true;
+			
 			if (state && state.controller.goToTime ) {
 				var goTo = state && state.status.currentTime;
 				if (typeof $("#front-footage-vid")[0] !== 'undefined') 	$("#front-footage-vid")[0].currentTime = goTo;
@@ -10,7 +12,7 @@
 				console.log("goto" + goTo);
 			}
 
-			if (state) {
+			if (state && oldPause !== pause ) {
 				if ( pause ) { 
 					console.log("pause");
 					if (typeof $("#front-footage-vid")[0] !== 'undefined') 	$("#front-footage-vid")[0].pause();
@@ -25,6 +27,7 @@
 					if (typeof $("#left-footage-vid")[0] !== 'undefined') 	$("#left-footage-vid")[0].play();
 					if (typeof $("#right-footage-vid")[0] !== 'undefined') 	$("#right-footage-vid")[0].play();
 				}
+				oldPause = state && state.controller.pause;
 			}
 
 		});

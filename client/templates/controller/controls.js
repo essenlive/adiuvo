@@ -21,6 +21,7 @@ Template.controls.events({
 
 	"change #controller":function(){
 		var scenario =  $('#controller').form('get values').scenario;
+		console.log(scenario, State.findOne({name: 'state'}).controller.scenario);
 		if ( scenario !== State.findOne({name: 'state'}).controller.scenario) {
 
 
@@ -56,7 +57,6 @@ Template.controls.events({
 	},
 	'click #goTo': function () {
 		var goTo = Number($('#controller').form('get values').goTo);
-		console.log(goTo);
 		Meteor.call('goTo', goTo, function(error, result) {
 			if (error)
 				console.log(error);
@@ -71,8 +71,8 @@ Template.controls.events({
 			type: "street",
 			name: "default street",
 			filename: "street.jpg",
-			arriveTime: 0,
-			duration: 10,
+			arriveTime: state.status.currentTime,
+			duration: 2,
 			scenarioId: state.status.scenario
 		};
 
@@ -94,8 +94,8 @@ Template.controls.events({
 			animation: 1,
 			startLed: 0,
 			endLed: 100,
-			arriveTime: 0,
-			duration: 10,
+			arriveTime: state.status.currentTime,
+			duration: 2,
 			scenarioId: state.status.scenario
 		};
 		Meteor.call('eventInsert', event, function(error, result) {
