@@ -45,13 +45,26 @@
 // 		}
 
 // 		Update if lookig on dashboard
-// 		if (zone === -1) Meteor.call('updateState',{"status.dashEye" : true });
-// 		else Meteor.call('updateState',{"status.dashEye" : false });
+// 		if (zone === -1){
+// 			gaze = Meteor.setTimeout(function(){
+// 				Meteor.call("sendToLed", "4000196100050000000000.")	
 
+// 			}, 5000
+// 			);
+// 		}
+// 		Meteor.call('updateState',{"status.dashEye" : true });	
+// 	} 
+// 	else {
+// 		Meteor.call('updateState',{"status.dashEye" : false });
+// 		if (typeof gaze !== 'undefined') {
 
-// 		Streamy.broadcast('coords', coords);
-
+// 			Meteor.clearInterval(gaze)
+// 		}
 // 	}
+
+// 	Streamy.broadcast('coords', coords);
+
+// }
 // }, interval);
 
 // });

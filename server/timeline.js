@@ -60,7 +60,7 @@ Meteor.methods({
 				if (events[eventIndex].type === 'led') {
 
 					var zones = [
-					"100196",	/*none*/
+					"000196",	/*none*/
 					"151161",	/*top left*/
 					"138150",	/*mid left*/
 					"105137",	/*bottom left*/
