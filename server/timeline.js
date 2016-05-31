@@ -60,18 +60,18 @@ Meteor.methods({
 				if (events[eventIndex].type === 'led') {
 
 					var zones = [
-					"010020",	/*none*/
-					"010020",	/*top left*/
-					"010020",	/*mid left*/
-					"010020",	/*bottom left*/
-					"010020",	/*middle left*/
-					"010020",	/*middle right*/
-					"010020",	/*bottom right*/
-					"010020",	/*mid right*/
-					"010020",	/*top right*/
-					"010020",	/*left mirror*/
-					"010020",	/*rear mirror*/
-					"010020"	/*right mirror*/
+					"100196",	/*none*/
+					"151161",	/*top left*/
+					"138150",	/*mid left*/
+					"105137",	/*bottom left*/
+					"083104",	/*middle left*/
+					"060082",	/*middle right*/
+					"026059",	/*bottom right*/
+					"013025",	/*mid right*/
+					"000012",	/*top right*/ 
+					"162171",	/*left mirror*/
+					"172185",	/*rear mirror*/
+					"186196"	/*right mirror*/
 					];
 					var colors = [
 					"050000000000",	/*red*/
