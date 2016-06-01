@@ -1,5 +1,5 @@
 <template name="controls">
-	<section id="controls" class="ui form container segment">
+	<section id="controls" class=" {{#if isPhone}}mobile{{/if}} ui form container segment">
 
 		<h2 class="ui header">
 			<i class="grid layout icon"></i>
@@ -27,18 +27,20 @@
 								{{/each}}
 							</div>
 						</div>
+
+						<button id="load-scenario" class="ui compact icon button">
+							Load
+						</button>
 					</div>
 
-<!-- 					<div class="ui segment">
-
-						<div class="ui fluid right labeled input">
-							<input name="goTo" type="text" placeholder=0>
-							<div class="ui basic label">seconds</div>
+					<div class="ui horizontal segments">
+						<div class="ui segment">
+							{{currentTime}}
 						</div>
-						<button id="goTo" class="ui fluid positive button">
-							go
-						</button>
-					</div> -->
+						<div class="ui segment">
+							{{duration}}
+						</div>
+					</div>
 
 					<div class="ui segment">
 						<div class="ui fluid basic buttons">

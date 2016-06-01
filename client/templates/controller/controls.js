@@ -19,19 +19,19 @@ Template.controls.onRendered(function () {
 
 Template.controls.events({
 
-	"change #controller":function(){
+	"click #load-scenario":function(){
 		var scenario =  $('#controller').form('get values').scenario;
-		console.log(scenario, State.findOne({name: 'state'}).controller.scenario);
 		if ( scenario !== State.findOne({name: 'state'}).controller.scenario) {
 
 
 			var video = document.createElement('video');
 			video.preload = 'metadata';
 
+
 			video.onloadedmetadata = function() {
 				window.URL.revokeObjectURL(this.src)
 				var duration = video.duration;﻿
-
+				console.log(duration);
 				Meteor.call('loadScenario', Number(scenario), duration, function(error, result) {
 					if (error)	console.log(error);
 				});
@@ -55,14 +55,6 @@ Template.controls.events({
 				console.log(error);
 		});	
 	},
-	'click #goTo': function () {
-		var goTo = Number($('#controller').form('get values').goTo);
-		Meteor.call('goTo', goTo, function(error, result) {
-			if (error)
-				console.log(error);
-		});
-
-	},
 	'click #add-street': function(e) {
 		e.preventDefault();
 
@@ -72,7 +64,6 @@ Template.controls.events({
 			name: "default street",
 			filename: "street.jpg",
 			arriveTime: state.status.currentTime,
-			duration: 2,
 			scenarioId: state.status.scenario
 		};
 
@@ -89,7 +80,7 @@ Template.controls.events({
 			type: "led",
 			color: 1,
 			animation: 5,
-			zone: 1,
+			zone: 0,
 			arriveTime: state.status.currentTime,
 			duration: 2,
 			scenarioId: state.status.scenario
@@ -122,5 +113,13 @@ Template.controls.helpers({
 		if (state && state.scenarios ) {
 			return state.scenarios;
 		}
+	},
+	currentTime: function() {
+		var state = State.findOne({name: 'state'});
+		return state && state.status.currentTime; 	
+	},
+	duration: function() {
+		var state = State.findOne({name: 'state'});
+		return state && state.status.duration; 	
 	},
 })

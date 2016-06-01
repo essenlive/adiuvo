@@ -21,6 +21,7 @@ Meteor.startup(function(){
 				name : "",
 				src : "",
 				visible : false,
+				change : false,
 			}
 		},
 		scenarios : [

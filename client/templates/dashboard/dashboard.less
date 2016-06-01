@@ -3,15 +3,14 @@
 	flex-direction : column;	
 }
 #street-frame{
+	position: relative;
 	height: 30%;
+	width: 50%;
+	margin-left: 50%;
 	background: rgba(0, 0, 0, 0.8);
-	margin: 3rem;
-	.outer{
-		height: 50%;
-		div{
-			color: white;
-		}
-	}
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
 }
 #rear-footage{
 	height: 70%;
@@ -22,7 +21,7 @@
 	position: relative !important;
 	video, img{
 		position: absolute;
-		bottom: 0;
+		bottom: -10%;
 		width: 100%;
 		min-height: 100%;
 	}

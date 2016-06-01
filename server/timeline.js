@@ -43,6 +43,18 @@ Meteor.methods({
 			{sort: { arriveTime: 1 }}
 			).fetch();
 
+		var step = state.status.currentTime;
+		_.each(events, function(element, index, list){
+			if (events[index].type === 'street') {
+				events[index].duration = events[index].arriveTime - step;
+				tempStep = step;
+				step = events[index].arriveTime;
+				events[index].arriveTime = tempStep;
+			}
+		});
+
+		_.sortBy(events, "arriveTime");
+
 		console.log("-----");
 		console.log(events );
 		console.log("-----");
@@ -51,9 +63,13 @@ Meteor.methods({
 		footageTime = Meteor.setInterval( function(){
 
 			//Master timeline
+			var duration = State.findOne({name: 'state'}).status.duration;
+			// console.log("ct:" + ct + "duration:" + duration);
 			Meteor.call('updateState',{"status.currentTime" : ct });
 			ct += interval / 100;	
-
+			if ( ct > duration ) {
+				Meteor.call("goTo", 0);
+			}
 			if ( events.length > eventIndex && ct>events[eventIndex].arriveTime ) {
 
 				//LEDs events
@@ -112,13 +128,15 @@ Meteor.methods({
 							name : events[eventIndex].name,
 							src : events[eventIndex].filename,
 							visible : true,
+							animationLength : events[eventIndex].duration,
+							change : true,
 						}
 					});
-					Meteor.setTimeout(function(){ 
-						Meteor.call('updateState',{"status.street.visible" : false });
-					},  
-					events[eventIndex].duration * 1000
-					);
+					// Meteor.setTimeout(function(){ 
+					// 	Meteor.call('updateState',{"status.street.visible" : false });
+					// },  
+					// events[eventIndex].duration * 1000
+					// );
 				}
 
 				eventIndex++;
