@@ -17,7 +17,7 @@ Meteor.startup(() => {
 			indexY = Math.ceil(y / ( sH / 3 )) - 1;
 			zone = grid[indexY][indexX];
 		}
-		// console.log("zone :" + zone);
+		console.log("zone :" + zone);
 		return zone;
 	}
 
@@ -32,9 +32,9 @@ Meteor.startup(() => {
 			var state = State.findOne({name: 'state'});
 			var ledZone = Number(state && state.status.ledZone);
 
-			console.log("----");
-			console.log(zone, ledZone);
-			console.log(zone === ledZone);
+			// console.log("----");
+			// console.log(zone, ledZone);
+			// console.log(zone === ledZone);
 
 			// stop animation when looking at alert
 			if ( zone === ledZone ) {
@@ -49,19 +49,19 @@ Meteor.startup(() => {
 
 
 			// Update if lookig on dashboard
-			// if (zone === -1){
-			// 	// gaze = Meteor.setTimeout(function(){
-			// 	// 	Meteor.call("sendToLed", "4000196100050000000000.")	
-			// 	// }, 5000);
-			// 	Meteor.call('updateState',{"status.dashEye" : true });	
+			if (zone < 0){
+				// gaze = Meteor.setTimeout(function(){
+				// 	Meteor.call("sendToLed", "4000196100050000000000.")	
+				// }, 5000);
+				Meteor.call('updateState',{"status.dashEye" : true });	
 
-			// }
-			// else {
-			// 	Meteor.call('updateState',{"status.dashEye" : false });
-			// 	// if (typeof gaze !== 'undefined') {
-			// 	// 	Meteor.clearInterval(gaze)
-			// 	// }
-			// }
+			}
+			else {
+				Meteor.call('updateState',{"status.dashEye" : false });
+				// if (typeof gaze !== 'undefined') {
+				// 	Meteor.clearInterval(gaze)
+				// }
+			}
 
 
 		}

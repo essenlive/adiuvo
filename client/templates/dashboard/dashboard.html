@@ -1,5 +1,6 @@
 <template name="dashboard">
-	<section id="dashboard" class="{{#if visible}}watched{{/if}}">
+	<section id="dashboard" class="{{#if watched}}watched{{/if}}">
+		{{> speed }}
 		{{> street }}
 		{{> rearFootage }}
 	</section>

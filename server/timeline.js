@@ -132,17 +132,21 @@ Meteor.methods({
 							change : true,
 						}
 					});
-					// Meteor.setTimeout(function(){ 
-					// 	Meteor.call('updateState',{"status.street.visible" : false });
-					// },  
-					// events[eventIndex].duration * 1000
-					// );
+					Meteor.setTimeout(function(){ 
+						Meteor.call('updateState',{"status.street.visible" : false });
+					},  
+					events[eventIndex].duration * 1000
+					);
 				}
 
 				eventIndex++;
 			}
 
-
+			var state = State.findOne({name: 'state'})
+			var speed = state && state.status.speed;
+			speed +=  Math.floor(Math.random() * 5) - 2;
+			Meteor.call('updateState',{"status.speed" : speed });
+			return speed;
 
 		}, interval * 10 );
 	},
@@ -150,6 +154,7 @@ Meteor.methods({
 	goTo : function(timeIndex){
 		Meteor.call('updateState', { "controller.goToTime": true, "status.currentTime" : timeIndex} );
 		Meteor.call('pause');
+		Meteor.call('updateState', { "status.speed": 30} );
 		Meteor.setTimeout(function(){
 			Meteor.call('updateState', { "controller.goToTime": false} );
 		}, 250);
@@ -165,6 +170,7 @@ Meteor.methods({
 				currentTime : 0,
 				ledZone : 0,
 				duration : duration,
+				speed : 30,
 				street : {
 					name : "default",
 					src : "",

@@ -1,16 +1,65 @@
 #dashboard{
 	display: flex;
-	flex-direction : column;	
+	flex-direction : row;
+	flex-wrap : wrap;
+	position: relative;
+	&::after{
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgb(0,0,0);
+		opacity: .5;
+	}
+	&.watched::after{
+		opacity: 0;
+	}
+};
+#speed{
+	height: 30%;
+	width: 25%;
+	position: relative;
+	display: flex;
+	flex-direction : row;
+	justify-content : center;
+	align-items: center;
+	.speedContain{
+		height: 170px;
+		width: 170px;
+		border-radius: 50%;
+		border : 3px solid white;
+		padding: 1rem;
+		display: flex;
+		flex-direction : row;
+		justify-content : center;
+		align-items: center;
+		& > div {
+			font-size: 3rem;
+			color: white;
+			display: inline-block;
+		}
+		.value{
+			font-weight: 900;
+		}
+		.label{
+			font-weight: 100;
+			margin-left: 1rem;
+			font-size: 2rem;
+		}
+	}
 }
 #street-frame{
 	position: relative;
 	height: 30%;
 	width: 50%;
-	margin-left: 50%;
-	background: rgba(0, 0, 0, 0.8);
+	margin-right: 25%;
 	padding: 3rem;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 }
 #rear-footage{
 	height: 70%;
