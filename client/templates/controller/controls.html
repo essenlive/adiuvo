@@ -1,85 +1,59 @@
 <template name="controls">
-	<section id="controls" class=" {{#if isPhone}}mobile{{/if}} ui form container segment">
+	<section id="controls" class=" {{#if isPhone}}mobile{{/if}} ui form container inverted segment">
 
-		<h2 class="ui header">
-			<i class="grid layout icon"></i>
-			<div class="content">
-				Controls
-				<div class="sub header">Here is the place to control the interface.</div>
-			</div>
-		</h2>
-
-		<div class="ui one column stackable grid">
-			<div id="controller" class="ui column">
-				<h3 class="ui dividing header">Footage</h3>
-
-				<div class="ui attached segments">
-
-					<div id="scenario-id" class="ui segment">
-						<div class="ui fluid inline field selection dropdown">
-							<label>Scenario</label>
-							<input type="hidden" name="scenario">
-							<i class="dropdown icon"></i>
-							<div class="default text">Scenarios</div>
-							<div class="menu">
-								{{#each scenarios}}
-								<div class="item" data-value="{{ index }}">{{ name }}</div>
-								{{/each}}
-							</div>
-						</div>
-
-						<button id="load-scenario" class="ui compact icon button">
-							Load
-						</button>
-					</div>
-
-					<div class="ui horizontal segments">
-						<div class="ui segment">
-							{{currentTime}}
-						</div>
-						<div class="ui segment">
-							{{duration}}
-						</div>
-					</div>
-
-					<div class="ui segment">
-						<div class="ui fluid basic buttons">
-							<button id="restart-footage" class="ui compact icon button">
-								<i class="retweet icon"></i> Restart footage
-							</button>
-
-							<button id="toggle-footage" class="ui compact icon button">
-								{{{ footageStatus }}} footage
-							</button>
-						</div>
-					</div>
-
-
+		<div style="position: absolute;height: 5px; background: white; width: {{width}}%; top: 0;left: 0; z-index: 100000;">		</div>
+		<div id="controller">
+			<div class="ui inline field selection dropdown">
+				<label>Scenario</label>
+				<input type="hidden" name="scenario">
+				<i class="dropdown icon"></i>
+				<div class="default text">Scenarios</div>
+				<div class="menu">
+					{{#each scenarios}}
+					<div class="item" data-value="{{ index }}">{{ name }}</div>
+					{{/each}}
 				</div>
-
 			</div>
 
-			<div id="manager" class="ui column">
-				<h3 class="ui dividing header">
-					Scenario manager
-				</h3>
+			<button id="load-scenario" class="ui compact icon inverted button">
+				Load
+			</button>
 
-				<div class="ui fluid buttons">
-					<button id="add-led" class="ui yellow basic icon button">
-						<i class="idea icon"></i>
-						add led event
-					</button>
-					<button id="add-street" class="ui blue basic icon button">
-						<i class="home icon"></i>
-						add street event
-					</button>
-				</div>
 
-				{{#each events}}
+			<div class="ui fluid basic inverted buttons">
+				<button id="restart-footage" class="ui compact icon button">
+					<i class="retweet icon"></i> Restart footage
+				</button>
 
-				{{> eventEdit}}
+				<button id="toggle-footage" class="ui compact icon button">
+					{{{ footageStatus }}} footage
+				</button>
+			</div>
+		</div>
 
-				{{/each}}
+
+		<div id="manager" class="ui column">
+			<h3 class="ui dividing inverted header">
+				Scenario manager
+			</h3>
+
+			<div class="ui fluid inverted buttons">
+				<button id="add-led" class="ui yellow basic icon button">
+					<i class="idea icon"></i>
+					add led event
+				</button>
+				<button id="add-street" class="ui blue basic icon button">
+					<i class="home icon"></i>
+					add street event
+				</button>
+			</div>
+			<div id="eventsManager">
+				
+			{{#each events}}
+
+			{{> eventEdit}}
+
+			{{/each}}
 			</div>
 		</div>
 	</section>

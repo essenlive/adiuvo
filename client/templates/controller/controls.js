@@ -122,4 +122,13 @@ Template.controls.helpers({
 		var state = State.findOne({name: 'state'});
 		return state && state.status.duration; 	
 	},
+	width: function() {
+		var state = State.findOne({name: 'state'});
+		if ( typeof state!== undefined ) {
+			var width = 100 * state.status.currentTime / state.status.duration;
+			return width;
+			
+		}
+
+	},
 })

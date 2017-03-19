@@ -10,6 +10,10 @@ body{
     }
   }
 
+
+
+
+
   main{
     #top-bar{
       &.hover{
@@ -38,15 +42,76 @@ body{
     }
   }
   #controls{
-    margin-top: 4rem !important;
-    margin-bottom: 4rem !important;
+    transition: all 0.2s ease-in-out;
+
+    position: absolute;
+    top: 0;
+    height: 2px;
+    width: 100%;
+    z-index: 500;
+    overflow: hidden;
+    // opacity: 0.1 !important;
+    padding: 2px;
+      #controller{
+        margin-top: 2rem; 
+      }
+      #manager{
+        margin-top: 2rem; 
+        display: none;
+      }
+    &:hover{
+      height: 100vh;
+      opacity: 1 !important;
+      #manager{
+        display: block;
+      }
+    }
+
+    #controller{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: no-wrap;
+      .selection.dropdown{
+        margin-bottom: 0;
+        width: 50%;
+      }
+    }
+    #eventsManager{
+      height: 50vh;
+      overflow-y: scroll;
+    }
+  }
+  #frontDisplay{
+    position: absolute;
+    height: 65vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
   }
   #dashboard{
     background: @black;
-    height: 100%;
-    width: 100%;
+    height: 35vh;
+    width: 40vW;
     position: fixed;
-    top: 0;
+    margin: auto;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+  #left-footage{
+    height: 35vh;
+    width: 30vw;
+    position: fixed;
+    left: 0;
+    bottom: 0; 
+  }
+  #right-footage{
+    height: 35vh;
+    width: 30vw;
+    position: fixed;
+    right: 0;
+    bottom: 0; 
   }
 }
 
